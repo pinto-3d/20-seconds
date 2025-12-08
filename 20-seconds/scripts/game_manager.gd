@@ -259,10 +259,7 @@ func start_game(loadLevel: bool = true):
 	pass
 
 func _timer_ran_out():
-	if isBossFight:
-		pass
-	else:
-		restart_current_level()
+	restart_current_level()
 
 func restart_current_level():
 	await player.instantly_die()

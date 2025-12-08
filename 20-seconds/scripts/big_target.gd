@@ -9,9 +9,10 @@ enum EyeFollow {
 }
 
 const DESTINATION_MIN_DIST: float = 1
-var SHAKE_DISTANCE_MAX: float = 5
-var SHAKE_DISTANCE_MIN: float = 2
-const ACTION_LERP:float = 10
+var SHAKE_DISTANCE_MAX: float = 10
+
+var SHAKE_DISTANCE_MIN: float = 5
+const ACTION_LERP:float = 5
 
 var currentDest: Vector2
 var hasDest: bool = false
@@ -65,16 +66,18 @@ func _process(delta: float) -> void:
 	
 	if hasDest:
 		if global_position.distance_to(currentDest) > DESTINATION_MIN_DIST:
-			global_position = lerp(global_position, currentDest, 1 * delta)
+			#global_position = lerp(global_position, currentDest, 1 * delta)
+			global_position = global_position.move_toward(currentDest, delta * 200)
 		else:
 			global_position = currentDest
 			set_is_tangible(true)
 			hasDest = true
-			eyeFollow = EyeFollow.Player
+			if eyeFollow == EyeFollow.Dest:
+				eyeFollow = EyeFollow.Player
 	
 	match eyeFollow:
 		EyeFollow.Player:
-			eyeDestination = G.player.global_position
+			eyeDestination = G.player.centerBody.global_position
 			_set_eye_dest(eyeDestination)
 		EyeFollow.Center:
 			_set_eye_center()
@@ -119,7 +122,7 @@ func take_damage():
 		die()
 		return
 	isShaking = true
-	eyeFollow = EyeFollow.Dest
+	eyeFollow = EyeFollow.Center
 	_set_eye_dest(global_position + Vector2.UP * 100)
 	await get_tree().create_timer(DAMAGE_TIME, true, false, true).timeout
 

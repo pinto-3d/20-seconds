@@ -64,7 +64,6 @@ func _physics_process(delta: float) -> void:
 	if G.state == G.State.PAUSED:
 		return
 	
-	
 	for node in area.get_overlapping_bodies():
 		_area_entered(node)
 		pass
@@ -83,10 +82,6 @@ func _physics_process(delta: float) -> void:
 func _area_entered(body: Node2D):
 	if body is Entity:
 		var entity = body as Entity
-		if entity is Player and sender is Player:
-			return
-		if entity is not Player and sender is not Player:
-			return
 		if !entity.invulnerable:
 			entity.get_hit(damage, knockback)
 			pass
@@ -97,7 +92,7 @@ func _area_entered(body: Node2D):
 
 
 func get_hit():
-	health -= damage
+	health -= 1
 	if health <= 0:
 		die()
 	pass

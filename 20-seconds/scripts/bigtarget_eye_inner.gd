@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 	if not enabled:
 		return
 	position = Vector2.ZERO
-	global_position = lerp(global_position, global_position.move_toward(global_position.direction_to(currentDestination) * radius, 3), EYE_LERP * delta)
+	global_position = lerp(global_position, global_position.move_toward(currentDestination, 3), EYE_LERP * delta)
 
 func look_toward(pos: Vector2):
 	if not enabled:
@@ -24,4 +24,4 @@ func look_toward(pos: Vector2):
 	currentDestination = pos
 	
 func set_to_center():
-	currentDestination = Vector2.ZERO
+	currentDestination = global_position

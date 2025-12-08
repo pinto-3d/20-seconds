@@ -524,8 +524,6 @@ func _cast_ray(dir: Vector2, length: float):
 func _physics_process(delta):
 	match state:
 		State.FREE:
-			
-			
 			get_inputVector()
 			if velocity.length() > SPEED_LIMIT:
 				velocity = velocity.normalized() * SPEED_LIMIT

@@ -5,7 +5,8 @@ const CAMERA_ZOOM: float = 1
 var bossLevels: Array[PackedScene]= [
 	load("res://levels/boss level1.tscn"),
 	load("res://levels/bosslevel2.tscn"),
-	load("res://levels/bosslevel3.tscn")
+	load("res://levels/bosslevel3.tscn"),
+	load("res://levels/bosslevel4.tscn")
 ]
 
 
@@ -34,7 +35,6 @@ func _ready():
 func _target_died():
 	G.inGameUI.timer.pause_timer()
 	msg_progress = 20
-	G.player.set_state(Player.State.DISABLE_COMPLETELY)
 	currentBossLevel.queue_free()
 	bigTarget.queue_free()
 	G.isBossFight = false
@@ -44,6 +44,8 @@ func _target_died():
 		Textbox.MsgInfo.new(G.agentName, "Alright, wanna go get lunch or something?", Textbox.Mode.PerChar),
 	]
 	G.send_queue_to_message_box(queue)
+	G.player.set_state(Player.State.DISABLE_COMPLETELY)
+	G.inGameUI.hide_ui()
 	pass
 
 var firstDest: Vector2 = Vector2(0, -75)
@@ -72,6 +74,14 @@ func _player_spawning_animation_finished():
 	super._player_spawning_animation_finished()
 	
 	if not HAS_INTRO:
+		G.isBossFight = true
+		bigTarget.set_is_tangible(true)
+		bigTarget.eyeFollow = BigTarget.EyeFollow.Center
+		bigTarget.set_dest(firstDest)
+		_start_level_input()
+		phase = BossPhase.HERE
+		await get_tree().create_timer(3, true, false, true).timeout
+		await spawn_boss_level(randi_range(0, bossLevels.size()-1))
 		return
 	var queue: Array[Textbox.MsgInfo] = [
 		Textbox.MsgInfo.new(G.agentName, "Agent, I have no clue what is happening!!", Textbox.Mode.PerChar,0, TextboxPortrait.Emotion.Surprised),
@@ -166,7 +176,8 @@ func spawn_boss_level(index: int):
 	G.player.velocity = Vector2.ZERO
 
 func bossLevelBeat():
-	currentBossLevel.queue_free()
+	if currentBossLevel:
+		currentBossLevel.queue_free()
 	currentBossLevel = null
 	await spawn_random_boss_level()
 	pass

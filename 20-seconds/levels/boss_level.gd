@@ -70,11 +70,15 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")
 func _process(delta):
-	
-	
 	if playerInside:
 		if G.player.isOnGround:
 			boss_level_beat()
+	
+	if G.player:
+		if G.player.state != Player.State.DYING:
+			if G.player.global_position.y > 1000:
+				print("x: ", G.player.global_position.x, ", ",global_position.x + 4000,"     y: ",G.player.global_position.y,",  ",global_position.y + 1000)
+				G.player.die()
 	pass
 
 func _physics_process(delta: float) -> void:

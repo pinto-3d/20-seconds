@@ -4,6 +4,7 @@ class_name BaseBullet
 func _init() -> void:
 	damage = 1
 	knockback = 1
+	health = 1
 	speed = 200
 	originalScale = 0.01
 	desiredScale = 0.025

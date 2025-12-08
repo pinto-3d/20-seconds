@@ -38,9 +38,6 @@ position = Vector2(0, -264)
 [node name="Target6" parent="." instance=ExtResource("4_l32mn")]
 position = Vector2(392, -352)
 
-[node name="Target7" parent="." instance=ExtResource("4_l32mn")]
-position = Vector2(448, -408)
-
 [node name="closeexit" type="TileMapLayer" parent="."]
 position = Vector2(367.99997, -95.99999)
 scale = Vector2(0.1, 0.1)

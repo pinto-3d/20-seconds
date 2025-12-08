@@ -37,10 +37,11 @@ class LevelInfo:
 	func stringify() -> String:
 		var string: String = "{\n"
 		var dicts: Array[Dictionary] = get_property_list()
-		for i in range(3, dicts.size()):
+		for i in range(2, dicts.size()):
 			string += "\""+dicts[i]["name"] + "\" :" + str(self.get(dicts[i]["name"]))
 			if i != dicts.size() - 1:
 				string += ",\n"
+			print(string)
 			pass
 		string += "\n}\n"
 		return string
