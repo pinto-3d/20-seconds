@@ -88,7 +88,6 @@ static func set_save(saveInfo: Save.GameInfo) -> bool:
 		if saveInfo:
 			print("writing: save info was not null")
 			config_file.set_value(SAVE_FILE_NAME, SAVE_FILE_NAME, saveInfo.stringify())
-			#print(config_file.encode_to_text())
 		else:
 			print("writing: save info was null")
 		
@@ -114,19 +113,3 @@ static func create_blank(levelCount: int) -> GameInfo:
 	
 	
 	return gameSave
-#
-#static func config_to_gameInfo(config: ConfigFile) -> GameInfo:
-	#
-	#if not config.has_section(SAVE_FILE_NAME):
-		#print("gameInfo doesnt have save file section")
-		#return null
-	#
-	#var val = config.get_value(SAVE_FILE_NAME, SAVE_FILE_NAME)
-	#if not val:
-		#print("gameInfo is null")
-		#var blank = create_blank(levelCount)
-		#write_save(blank)
-		#return blank
-	#print("gameInfo not null")
-	#var gameInfo = JSON.parse_string(val)
-	#pass

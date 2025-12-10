@@ -82,6 +82,8 @@ func _physics_process(delta: float) -> void:
 func _area_entered(body: Node2D):
 	if body is Entity:
 		var entity = body as Entity
+		if entity == sender:
+			return
 		if !entity.invulnerable:
 			entity.get_hit(damage, knockback)
 			pass
