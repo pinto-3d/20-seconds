@@ -21,7 +21,7 @@ scale_min = 0.06
 scale_max = 0.06
 scale_curve = SubResource("CurveTexture_d5n4w")
 
-[node name="emitter" type="GPUParticles2D"]
+[node name="emitter2" type="GPUParticles2D"]
 emitting = false
 amount = 1
 texture = ExtResource("1_78eep")

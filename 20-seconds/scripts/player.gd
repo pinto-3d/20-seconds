@@ -27,6 +27,8 @@ var centerLegs: Node2D
 
 var leftWallRay: RayCast2D
 var rightWallRay: RayCast2D
+var wallOnLeft: bool = false
+var wallOnRight: bool = false
 var downRays: Array[RayCast2D]
 const DOWN_RAY_LENGTH: float = 0.01
 
@@ -142,6 +144,8 @@ var stepEmitterTimer: float = 0
 
 const STEP_SOUND_GAP: float = 0.1
 var stepSoundTimer: float = 0
+
+const walljumpEmitterScene: PackedScene = preload("res://scenes/walljump_emitter.tscn")
 
 const spawnEmitterScene: PackedScene = preload("res://scenes/reanimate_emitter.tscn")
 var spawnEmitters: Array[OneShotEmitter] = []
@@ -508,6 +512,16 @@ func _step_emit(delta: float):
 		stepEmitter.global_position = global_position
 	pass
 
+func _walljump_emit(pos:Vector2, delta: float):
+	if stepEmitterTimer < STEP_EMITTER_GAP:
+		stepEmitterTimer += delta
+		pass
+	else:
+		stepEmitterTimer = 0
+		var stepEmitter = await G.spawn(walljumpEmitterScene)
+		stepEmitter.global_position = pos
+	pass
+
 @warning_ignore("unused_parameter")
 func _cast_ray(dir: Vector2, length: float):
 	var space_state = get_world_2d().direct_space_state
@@ -558,11 +572,31 @@ func _physics_process(delta):
 				velocity -= get_gravity() * delta
 
 			# Handle jump.
-			if Input.is_action_just_pressed("jump") && isOnGround:
-				velocity.y = JUMP_VELOCITY
-			# Handle walljump
-			if Input.is_action_just_pressed("jump") && not isOnGround:
-				_try_wall_jump()
+			if isOnGround:
+				wallOnLeft = false
+				wallOnRight = false
+				if Input.is_action_just_pressed("jump"):
+					velocity.y = JUMP_VELOCITY
+			else:
+				if len(leftDetect.get_overlapping_bodies()) > 0:
+					wallOnLeft = true
+				else:
+					wallOnLeft = false
+				if len(rightDetect.get_overlapping_bodies()) > 0:
+					wallOnRight = true
+				else:
+					wallOnRight = false
+
+			if wallOnLeft:
+				if leftWallRay.is_colliding():
+					_walljump_emit(leftWallRay.get_collision_point(), delta)
+				if Input.is_action_just_pressed("jump"):
+					wall_jump(1)
+			if wallOnRight:
+				if rightWallRay.is_colliding():
+					_walljump_emit(rightWallRay.get_collision_point(), delta)
+				if Input.is_action_just_pressed("jump"):
+					wall_jump(-1)
 
 			if gun:
 				if Input.is_action_pressed("shoot"):
@@ -654,20 +688,13 @@ func _physics_process(delta):
 		State.DISABLE_PHYSICS:
 			pass
 
-func _try_wall_jump():
-	if len(leftDetect.get_overlapping_bodies()) > 0:
-		wall_jump(1)
-	if len(rightDetect.get_overlapping_bodies()) > 0:
-		wall_jump(-1)
-
 func wall_jump(dir: int):
 	if velocity.y < -MIN_SLIDE_BOOST_SPEED:
 		velocity.y = velocity.y
-		velocity.x = dir * WALL_JUMP_VELOCITY.x
 	else:
 		velocity.y = WALL_JUMP_VELOCITY.y
-		velocity.x = dir * WALL_JUMP_VELOCITY.x
-		pass
+	velocity.x = dir * WALL_JUMP_VELOCITY.x
+	
 	play_random_sound(asWalljumps)
 	#set_direction(dir)
 	pass
