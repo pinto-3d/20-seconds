@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b2iue32ndn5wh"]
 
 [ext_resource type="Script" uid="uid://bursccaau0w2t" path="res://scripts/pause_screen.gd" id="1_gchx3"]
-[ext_resource type="Script" uid="uid://ceola0r3pxu0x" path="res://scripts/focus_button.gd" id="2_qeunj"]
+[ext_resource type="Script" uid="uid://nd7cyc8t3w8l" path="res://scripts/screen_button.gd" id="2_hr2n2"]
 [ext_resource type="PackedScene" uid="uid://c3qp05vstbspj" path="res://scenes/button_hint.tscn" id="3_hr2n2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fgkus"]
@@ -41,19 +41,22 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Resume"
-script = ExtResource("2_qeunj")
+script = ExtResource("2_hr2n2")
+startFocused = true
 
 [node name="LevelSelect" type="Button" parent="Control/Buttons/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Level Select"
+script = ExtResource("2_hr2n2")
 
 [node name="Main Menu" type="Button" parent="Control/Buttons/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Main Menu"
+script = ExtResource("2_hr2n2")
 
 [node name="Label" type="Label" parent="Control"]
 layout_mode = 1

@@ -1,10 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://cyixp0u4wiouk"]
+[gd_scene load_steps=11 format=3 uid="uid://cyixp0u4wiouk"]
 
 [ext_resource type="Script" uid="uid://c83pgfwsbqsjf" path="res://scripts/settings_screen.gd" id="1_qrqa7"]
 [ext_resource type="Theme" uid="uid://b67ktu5hqqt6u" path="res://default_font_style.tres" id="2_assm4"]
+[ext_resource type="Script" uid="uid://deg6qjvhaiunj" path="res://scripts/screen_item.gd" id="3_7q1qo"]
 [ext_resource type="Script" uid="uid://ckgvjdjdgwqyt" path="res://scripts/clear_save_data.gd" id="3_pt01f"]
 [ext_resource type="FontFile" uid="uid://xpjs2mvyhmku" path="res://font/MonacoB2-Bold.otf" id="3_qrqa7"]
 [ext_resource type="Script" uid="uid://ceola0r3pxu0x" path="res://scripts/focus_button.gd" id="5_n20dh"]
+
+[sub_resource type="Theme" id="Theme_7q1qo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7q1qo"]
+bg_color = Color(0, 0, 0, 0.39215687)
 
 [sub_resource type="LabelSettings" id="LabelSettings_fgkus"]
 font_size = 48
@@ -14,13 +20,14 @@ font_size = 48
 [node name="settings" type="CanvasLayer"]
 script = ExtResource("1_qrqa7")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
+[node name="Control" type="Panel" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_7q1qo")
+theme_override_styles/panel = SubResource("StyleBoxFlat_7q1qo")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control"]
 layout_mode = 1
@@ -55,6 +62,7 @@ size_flags_horizontal = 0
 theme = ExtResource("2_assm4")
 theme_override_font_sizes/font_size = 24
 text = "Clear Save Data"
+script = ExtResource("3_7q1qo")
 
 [node name="Clear Save Data" type="Button" parent="Control/VBoxContainer2/VBoxContainer/clear save data setting/MarginContainer"]
 custom_minimum_size = Vector2(200, 0)

@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Screen
 class_name SettingsScreen
 
 var exit: Button

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://nm3tk2ttl8mv" path="res://scripts/title_screen.gd" id="1_fgkus"]
 [ext_resource type="Theme" uid="uid://b67ktu5hqqt6u" path="res://default_font_style.tres" id="2_sa3yf"]
 [ext_resource type="FontFile" uid="uid://xpjs2mvyhmku" path="res://font/MonacoB2-Bold.otf" id="3_s4lrb"]
-[ext_resource type="Script" uid="uid://ceola0r3pxu0x" path="res://scripts/focus_button.gd" id="4_mgrm8"]
+[ext_resource type="Script" uid="uid://nd7cyc8t3w8l" path="res://scripts/screen_button.gd" id="5_dc4i4"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fgkus"]
 font_size = 48
@@ -18,6 +18,25 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -562.0
+offset_top = -120.0
+offset_right = 562.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_sa3yf")
+text = "Super Secret Polar Bear Agent Simulator"
+label_settings = SubResource("LabelSettings_fgkus")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Buttons" type="CenterContainer" parent="Control"]
 layout_mode = 1
@@ -43,7 +62,8 @@ theme = ExtResource("2_sa3yf")
 theme_override_fonts/font = ExtResource("3_s4lrb")
 theme_override_font_sizes/font_size = 32
 text = "Start"
-script = ExtResource("4_mgrm8")
+script = ExtResource("5_dc4i4")
+startFocused = true
 
 [node name="Level Select Button" type="Button" parent="Control/Buttons/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
@@ -51,6 +71,7 @@ layout_mode = 2
 theme = ExtResource("2_sa3yf")
 theme_override_font_sizes/font_size = 32
 text = "Level Select"
+script = ExtResource("5_dc4i4")
 
 [node name="Settings Button" type="Button" parent="Control/Buttons/VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
@@ -58,25 +79,7 @@ layout_mode = 2
 theme = ExtResource("2_sa3yf")
 theme_override_font_sizes/font_size = 32
 text = "Settings"
-
-[node name="Label" type="Label" parent="Control"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -101.5
-offset_right = 20.0
-offset_bottom = -78.5
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("2_sa3yf")
-text = "Super Secret Polar Bear Agent Simulator"
-label_settings = SubResource("LabelSettings_fgkus")
-horizontal_alignment = 1
-vertical_alignment = 1
+script = ExtResource("5_dc4i4")
 
 [node name="lblBottomLeft" type="Label" parent="Control"]
 layout_mode = 1

@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Screen
 class_name LevelSelect
 
 enum Type {
@@ -17,8 +17,12 @@ signal level_selected(index: int)
 signal exitPressed()
 
 func _ready() -> void:
+	super._ready()
 	grid = $Control/Buttons/Grid
 	$Control/Exit.pressed.connect(_exit_pressed)
+
+func _process(delta: float) -> void:
+	super._process(delta)
 
 @warning_ignore("shadowed_variable")
 func initialize(gameInfo: Save.GameInfo, type: Type):
@@ -31,6 +35,7 @@ func initialize(gameInfo: Save.GameInfo, type: Type):
 				continue
 		var btn: LevelButton = await G.spawn(levelButtonScene)
 		btn.initialize(i, gameInfo.levelInfos[i].bestTime)
+		add_item_to_delay(btn)
 		btn.sbtn_pressed.connect(_level_selected)
 		btn.reparent(grid)
 		if i == gameInfo.lastLevelBeat-1:

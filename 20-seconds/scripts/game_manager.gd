@@ -107,6 +107,7 @@ func _ready():
 
 func intro_end():
 	await load_titlescreen()
+	queue_free_in_game_objs()
 	if not backgrounds:
 		spawn_backgrounds()
 
@@ -157,6 +158,7 @@ func set_backgrounds_color_from_level(level: Level):
 
 func load_titlescreen():
 	queue_free_menus()
+	queue_free_in_game_objs()
 	state = State.TITLE_SCREEN
 	titleScreen = await spawn(load("res://scenes/title_screen.tscn"))
 	titleScreen.startPressed.connect(start_game)
@@ -179,6 +181,7 @@ func load_intro():
 
 func load_settings_screen():
 	queue_free_menus()
+	queue_free_in_game_objs()
 	settingsScreen = await spawn(settingsScreenScene)
 	settingsScreen.exitPressed.connect(load_titlescreen)
 
@@ -196,6 +199,7 @@ func queue_free_menus():
 
 func load_level_select(type: LevelSelect.Type):
 	queue_free_menus()
+	queue_free_in_game_objs()
 	levelSelect = await spawn(levelSelectScene)
 	levelSelect.initialize(gameSave, type)
 	levelSelect.level_selected.connect(load_level)
@@ -203,6 +207,14 @@ func load_level_select(type: LevelSelect.Type):
 		levelSelect.exitPressed.connect(load_pause_screen)
 	else:
 		levelSelect.exitPressed.connect(load_titlescreen)
+
+func queue_free_in_game_objs():
+	if curLevelObj:
+		curLevelObj.queue_free()
+	if player:
+		player.queue_free()
+	if inGameUI:
+		inGameUI.queue_free()
 
 func spawn_ui():
 	inGameUI = await spawn(inGameUIScene)

@@ -1,22 +1,13 @@
-extends Button
+extends ScreenButton
 
-var timer: float = 0
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	super._ready()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if timer > 0:
-		timer -= delta
-	else:
-		text = "Clear"
-	pass
+	super._process(delta)
 
 func _pressed() -> void:
+	super._pressed()
 	G.gameSave = Save.create_blank(G.levelPaths.size())
 	Save.set_save(G.gameSave)
-	text = "Save Cleared!"
-	timer = 10
+	_text = "Save Cleared!"
