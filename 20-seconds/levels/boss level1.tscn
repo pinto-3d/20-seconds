@@ -55,7 +55,3 @@ position = Vector2(0, -180)
 
 [node name="Target6" parent="." instance=ExtResource("4_k0k7y")]
 position = Vector2(0, -224)
-
-[node name="Line2D" type="Line2D" parent="."]
-position = Vector2(-104, -4)
-points = PackedVector2Array(-2, 8, -31, -79, -28, -457)

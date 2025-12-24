@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cyixp0u4wiouk"]
+[gd_scene load_steps=12 format=3 uid="uid://cyixp0u4wiouk"]
 
 [ext_resource type="Script" uid="uid://c83pgfwsbqsjf" path="res://scripts/settings_screen.gd" id="1_qrqa7"]
 [ext_resource type="Theme" uid="uid://b67ktu5hqqt6u" path="res://default_font_style.tres" id="2_assm4"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://ckgvjdjdgwqyt" path="res://scripts/clear_save_data.gd" id="3_pt01f"]
 [ext_resource type="FontFile" uid="uid://xpjs2mvyhmku" path="res://font/MonacoB2-Bold.otf" id="3_qrqa7"]
 [ext_resource type="Script" uid="uid://ceola0r3pxu0x" path="res://scripts/focus_button.gd" id="5_n20dh"]
+[ext_resource type="Script" uid="uid://hdds4besmsq7" path="res://scenes/setting_touch_controls.gd" id="5_t5s44"]
 
 [sub_resource type="Theme" id="Theme_7q1qo"]
 
@@ -72,6 +73,32 @@ theme = ExtResource("2_assm4")
 theme_override_font_sizes/font_size = 32
 text = "Clear"
 script = ExtResource("3_pt01f")
+
+[node name="touch controls" type="PanelContainer" parent="Control/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_assm4")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/VBoxContainer2/VBoxContainer/touch controls"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="Label" type="Label" parent="Control/VBoxContainer2/VBoxContainer/touch controls/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("2_assm4")
+theme_override_font_sizes/font_size = 24
+text = "Use Touch Controls?"
+script = ExtResource("3_7q1qo")
+
+[node name="Touch Controls" type="Button" parent="Control/VBoxContainer2/VBoxContainer/touch controls/MarginContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("2_assm4")
+theme_override_font_sizes/font_size = 32
+text = "On"
+script = ExtResource("5_t5s44")
 
 [node name="CenterContainer" type="CenterContainer" parent="Control/VBoxContainer2/VBoxContainer"]
 layout_mode = 2

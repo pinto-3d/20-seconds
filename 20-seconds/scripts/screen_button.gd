@@ -5,7 +5,7 @@ class_name ScreenButton
 
 func _ready() -> void:
 	super._ready()
-	connect("pressed", _pressed)
+	#connect("pressed", _pressed)
 	if startFocused:
 		grab_focus()
 

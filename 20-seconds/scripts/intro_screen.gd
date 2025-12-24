@@ -56,13 +56,18 @@ func _ready() -> void:
 			MsgInfo.new("WELCOME TO THE FIELD TRAINING SIMULATION", Mode.Instant, 3),
 		]
 	)
+	
+	$Button.pressed.connect(_skip)
+
+func _skip():
+	skipPressed.emit()
 
 func _process(delta: float) -> void:
 	
 	if Input.is_action_just_released("skip_text"):
-		skipPressed.emit()
+		_skip()
 	if Input.is_action_just_released("pause"):
-		skipPressed.emit()
+		_skip()
 	if isActive:
 		
 		if currentText != currentDestText:
@@ -94,7 +99,7 @@ func _speak_next_message_in_queue() -> bool:
 		messageQueue.remove_at(0)
 		return true
 	else:
-		skipPressed.emit()
+		_skip()
 	return false
 
 func _set_text(text:String):

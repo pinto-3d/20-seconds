@@ -42,6 +42,9 @@ var playerScene: PackedScene = preload("res://scenes/player.tscn")
 var camera: GameCamera
 var cameraScene: PackedScene = preload("res://scenes/game_camera.tscn")
 
+var touch: TouchControls
+var touchScene: PackedScene = preload("res://touch_controls.tscn")
+
 var audio: AudioStreamPlayer
 var song: AudioStream = load("res://audio/Driving In The Rain.mp3")
 var songLoop: AudioStream = load("res://audio/Driving In The Rain loop.mp3")
@@ -70,6 +73,10 @@ var isBossFight: bool = false
 func _ready():
 	if OS.has_feature('web'):
 		debug = false
+	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		usingTouchControls = true
+	else:
+		usingTouchControls = false
 	
 	levelPaths.append("res://levels/intro_level.tscn");
 	levelPaths.append("res://levels/level1.tscn");
@@ -155,6 +162,13 @@ func set_backgrounds_color_from_level(level: Level):
 		set_backgrounds_color(level.color)
 	else:
 		set_backgrounds_color(palettes[level.paletteName])
+
+func load_touch_screen():
+	touch = await spawn(touchScene)
+
+func unload_touch_screen():
+	if touch:
+		touch.queue_free()
 
 func load_titlescreen():
 	queue_free_menus()
@@ -309,6 +323,10 @@ func _process(delta):
 		State.TITLE_SCREEN:
 			pass
 		State.IN_GAME:
+			if Input.is_physical_key_pressed(KEY_W) or Input.is_physical_key_pressed(KEY_S) or Input.is_physical_key_pressed(KEY_A) or Input.is_physical_key_pressed(KEY_D) or Input.is_physical_key_pressed(KEY_J) or Input.is_physical_key_pressed(KEY_K) or Input.is_physical_key_pressed(KEY_UP) or Input.is_physical_key_pressed(KEY_DOWN) or Input.is_physical_key_pressed(KEY_LEFT) or Input.is_physical_key_pressed(KEY_RIGHT):
+				usingTouchControls = false
+				if touch:
+					unload_touch_screen()
 			pass
 		State.PAUSED:
 			pass
@@ -439,6 +457,13 @@ func load_level(index: int, isRetry = false) -> bool:
 		gm_player_spawning_load_finished.emit()
 		if not camera:
 			await spawn_camera()
+			
+		if usingTouchControls:
+			if not touch:
+				load_touch_screen()
+		else:
+			if touch:
+				unload_touch_screen()
 		
 		reset_player()
 		player.global_position = curLevelObj.start.global_position
@@ -449,6 +474,8 @@ func load_level(index: int, isRetry = false) -> bool:
 		
 		return true
 	return false
+
+var usingTouchControls: bool = false
 
 signal gm_level_goal_reached
 func _level_goal_reached():

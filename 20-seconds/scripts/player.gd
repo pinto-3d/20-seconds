@@ -876,7 +876,6 @@ func slide(delta: float):
 	velocity.y = -velocity.y
 	
 	if isOnGroundOld and not isOnGround:
-		print(velocity)
 		pass
 	isOnGroundOld = isOnGround
 
