@@ -35,6 +35,7 @@ var mode: Mode
 var lblText: RichTextLabel
 var buttonHint: ButtonHint
 var portrait: TextboxPortrait
+var btn: Button
 
 var allowSkipInput: bool = true
 var isActive: bool = false
@@ -56,8 +57,16 @@ func _ready() -> void:
 	buttonHint = $"margin icons/key icon"
 	portrait = $Control/MarginContainer/Portrait
 	audio = $AudioStreamPlayer
+	btn = $Button
+	btn.pressed.connect(_try_advance_text)
 	
 	close()
+	pass
+
+func _try_advance_text():
+	if isActive:
+		if allowSkipInput:
+			_show_complete_current_message()
 	pass
 
 func _process(delta: float) -> void:
@@ -70,7 +79,7 @@ func _process(delta: float) -> void:
 		
 		if allowSkipInput:
 			if Input.is_action_just_released("advance_text"):
-				_input_pressed()
+				_show_complete_current_message()
 			if Input.is_action_just_released("skip_text"):
 				_skip_input_pressed()
 		
@@ -117,6 +126,13 @@ func _speak_next_message_in_queue() -> bool:
 		textboxClosed.emit()
 	return false
 
+func _show_complete_current_message() -> void:
+	if lblText.text != _get_speaker_text(currentDestText):
+		currentText = currentDestText
+		_set_text(currentText)
+	else:
+		_speak_next_message_in_queue()
+
 func _input_pressed():
 	_speak_next_message_in_queue()
 
@@ -138,12 +154,14 @@ func _open():
 	audio.stream = asOpen
 	audio.play()
 
-func _set_text(text:String, emotion: TextboxPortrait.Emotion = TextboxPortrait.Emotion.Default):
+func _set_text(text:String):
+	lblText.text = _get_speaker_text(text)
+
+func _get_speaker_text(text:String):
 	if currentSpeaker != "":
-		lblText.text = currentSpeaker + "> "+ text
+		return currentSpeaker + "> "+ text
 	else:
-		lblText.text = text
-	pass
+		return text
 
 @warning_ignore("shadowed_variable")
 func speak(mode: Mode, text: String):

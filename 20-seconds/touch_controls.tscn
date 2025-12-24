@@ -1,0 +1,154 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1nykogqat7cf"]
+
+[ext_resource type="Script" uid="uid://cmow7f3vqour8" path="res://scripts/touch_controls.gd" id="1_1gcqp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kc2wj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kr5gl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_urpi5"]
+
+[node name="touch controls" type="CanvasLayer"]
+layer = 0
+script = ExtResource("1_1gcqp")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="buttons" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -463.0
+offset_top = -352.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="jump" type="PanelContainer" parent="Control/buttons"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -390.0
+offset_top = -354.0
+offset_right = -198.0
+offset_bottom = -180.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kc2wj")
+
+[node name="Button" type="Button" parent="Control/buttons/jump"]
+layout_mode = 2
+text = "jump"
+
+[node name="crouch" type="PanelContainer" parent="Control/buttons"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -159.0
+offset_top = -350.0
+offset_right = -16.0
+offset_bottom = -203.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_kr5gl")
+
+[node name="Button" type="Button" parent="Control/buttons/crouch"]
+layout_mode = 2
+text = "crouch"
+
+[node name="shoot" type="PanelContainer" parent="Control/buttons"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -458.0
+offset_top = -152.0
+offset_right = -322.0
+offset_bottom = -9.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxEmpty_urpi5")
+
+[node name="Button" type="Button" parent="Control/buttons/shoot"]
+layout_mode = 2
+text = "shoot"
+
+[node name="movement" type="HBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -363.0
+offset_right = 540.0
+grow_vertical = 0
+
+[node name="left" type="PanelContainer" parent="Control/movement"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_urpi5")
+
+[node name="Button" type="Button" parent="Control/movement/left"]
+layout_mode = 2
+text = "<"
+
+[node name="updown" type="VBoxContainer" parent="Control/movement"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="up" type="PanelContainer" parent="Control/movement/updown"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_urpi5")
+
+[node name="Button" type="Button" parent="Control/movement/updown/up"]
+layout_mode = 2
+text = "^"
+
+[node name="down" type="PanelContainer" parent="Control/movement/updown"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_urpi5")
+
+[node name="Button" type="Button" parent="Control/movement/updown/down"]
+layout_mode = 2
+text = "V"
+
+[node name="right" type="PanelContainer" parent="Control/movement"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_urpi5")
+
+[node name="Button" type="Button" parent="Control/movement/right"]
+layout_mode = 2
+text = ">"
