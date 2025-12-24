@@ -72,12 +72,13 @@ func set_timer():
 
 func _process(delta: float) -> void:
 	get_parent().size.y = 0
-	if Input.is_action_just_released("toggle_timer"):
-		if state == State.Blank:
-			resume_timer()
-		else:
-			pause_timer()
-		pass
+	if G.debug:
+		if Input.is_action_just_released("toggle_timer"):
+			if state == State.Blank:
+				resume_timer()
+			else:
+				pause_timer()
+			pass
 	match state:
 		State.Blank:
 			visible = false
