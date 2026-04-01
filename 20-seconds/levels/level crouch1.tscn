@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://fkhvjqvu8sog"]
+[gd_scene format=4 uid="uid://fkhvjqvu8sog"]
 
 [ext_resource type="Script" uid="uid://d1e6i1cv8de05" path="res://levels/level_crouch1.gd" id="1_8b204"]
 [ext_resource type="TileSet" uid="uid://ct0y8s1mnvw7l" path="res://tileset.tres" id="2_8b204"]
@@ -6,40 +6,40 @@
 [ext_resource type="PackedScene" uid="uid://b4geu3gunpjal" path="res://scenes/target.tscn" id="4_uodtq"]
 [ext_resource type="PackedScene" uid="uid://c3qp05vstbspj" path="res://scenes/button_hint.tscn" id="5_8b204"]
 
-[node name="level" type="Node2D"]
+[node name="level" type="Node2D" unique_id=1118780585]
 script = ExtResource("1_8b204")
 color = Color(0, 0.7058824, 0.34901962, 1)
 paletteName = "crouch"
 HAS_GUN = false
 
-[node name="platform" type="TileMapLayer" parent="."]
+[node name="platform" type="TileMapLayer" parent="." unique_id=1177023988]
 scale = Vector2(0.1, 0.1)
 tile_map_data = PackedByteArray("AAD//wAAAAAAAAkAAAAAAAAAAAAAAAkAAAABAAAAAAAAAAkAAAACAAAAAAAAAAkAAAADAAAAAAAAAAkAAAADAAEAAAAAAAkAAAACAAEAAAAAAAkAAAABAAEAAAAAAAkAAAAAAAEAAAAAAAkAAAD//wEAAAAAAAkAAAAFAAIAAAAAAAkAAAAEAAIAAAAAAAkAAAADAAIAAAAAAAkAAAACAAIAAAAAAAkAAAABAAIAAAAAAAkAAAAAAAIAAAAAAAkAAAD//wIAAAAAAAkAAAAEAAAAAAAAAAkAAAAEAAEAAAAAAAkAAAAFAAEAAAAAAAkAAAAFAAAAAAAAAAkAAAAGAAAAAAAAAAkAAAAHAAEAAAAAAAkAAAAIAAIAAAAAAAkAAAAHAAIAAAAAAAkAAAAGAAIAAAAAAAkAAAAGAAEAAAAAAAkAAAAHAAAAAAAAAAkAAAAIAAAAAAAAAAkAAAAIAAEAAAAAAAkAAAAJAAAAAAAAAAkAAAAJAAEAAAAAAAkAAAAJAAIAAAAAAAkAAAAKAAAAAAAAAAkAAAAKAAEAAAAAAAkAAAAKAAIAAAAAAAkAAAALAAAAAAAAAAkAAAALAAEAAAAAAAkAAAALAAIAAAAAAAkAAAAEAO//AAAAAAkAAAAEAPD/AAAAAAkAAAAEAPH/AAAAAAkAAAAEAPT/AAAAAAkAAAAEAPX/AAAAAAkAAAAEAPz/AAAAAAkAAAAEAP3/AAAAAAkAAAAEAP7/AAAAAAkAAAAEAP//AAADAAgAAAAFAO//AAAAAAkAAAAFAPD/AAAAAAkAAAAFAPH/AAAAAAkAAAAFAPz/AAAAAAkAAAAFAP3/AAAAAAkAAAAFAP7/AAAAAAkAAAAFAP//AAADAAgAAAAJAPv/AAAAAAkAAAAJAPz/AAAAAAkAAAAJAP3/AAAAAAkAAAAJAP7/AAAAAAkAAAAJAP//AAAAAAkAAAAKAPz/AAAAAAkAAAAKAP3/AAAAAAkAAAAKAP7/AAAAAAkAAAAKAP//AAAAAAkAAAALAPz/AAAAAAkAAAALAP3/AAAAAAkAAAALAP7/AAAAAAkAAAALAP//AAAAAAkAAAD5/+H/AAAAAAkAAAD5/+L/AAAAAAkAAAD5/+P/AAAAAAkAAAD5/+T/AAAAAAkAAAD5/+X/AAAAAAkAAAD5/+b/AAAAAAkAAAD5/+f/AAAAAAkAAAD5/+j/AAAAAAkAAAD5/+n/AAAAAAkAAAD5/+r/AAAAAAkAAAD5/+v/AAAAAAkAAAD5/+z/AAAAAAkAAAD5/+3/AAAAAAkAAAD5/+7/AAAAAAkAAAD5/+//AAAAAAkAAAD5//D/AAAAAAkAAAD5//H/AAAAAAkAAAD5//L/AAAAAAkAAAD5//P/AAAAAAkAAAD5//T/AAAAAAkAAAD5//b/AAAAAAkAAAD5//f/AAAAAAkAAAD5//j/AAAAAAkAAAD5//n/AAAAAAkAAAD5//r/AAAAAAkAAAD5//v/AAAAAAkAAAD5//z/AAAAAAkAAAD5//3/AAAAAAkAAAD5//7/AAAAAAkAAAD5////AAAAAAkAAAD5/wAAAAAAAAkAAAD5/wEAAAAAAAkAAAD5/wIAAAAAAAkAAAD6/+H/AAAAAAkAAAD6/+L/AAAAAAkAAAD6/+P/AAAAAAkAAAD6/+T/AAAAAAkAAAD6/+X/AAAAAAkAAAD6/+b/AAAAAAkAAAD6/+f/AAAAAAkAAAD6/+j/AAAAAAkAAAD6/+n/AAAAAAkAAAD6/+r/AAAAAAkAAAD6/+v/AAAAAAkAAAD6/+z/AAAAAAkAAAD6/+3/AAAAAAkAAAD6/+7/AAAAAAkAAAD6/+//AAAAAAkAAAD6//D/AAAAAAkAAAD6//H/AAAAAAkAAAD6//L/AAAAAAkAAAD6//P/AAAAAAkAAAD6//T/AAAAAAkAAAD6//b/AAAAAAkAAAD6//f/AAAAAAkAAAD6//j/AAAAAAkAAAD6//n/AAAAAAkAAAD6//r/AAAAAAkAAAD6//v/AAAAAAkAAAD6//z/AAAAAAkAAAD6//3/AAAAAAkAAAD6//7/AAAAAAkAAAD6////AAAAAAkAAAD6/wAAAAAAAAkAAAD6/wEAAAAAAAkAAAD6/wIAAAAAAAkAAAD7/+H/AAAAAAkAAAD7/+L/AAAAAAkAAAD7/+P/AAAAAAkAAAD7/+T/AAAAAAkAAAD7/+X/AAAAAAkAAAD7/+b/AAAAAAkAAAD7/+f/AAAAAAkAAAD7/+j/AAAAAAkAAAD7/+n/AAAAAAkAAAD7/+r/AAAAAAkAAAD7/+v/AAAAAAkAAAD7/+z/AAAAAAkAAAD7/+3/AAAAAAkAAAD7/+7/AAAAAAkAAAD7/+//AAAAAAkAAAD7//D/AAAAAAkAAAD7//H/AAAAAAkAAAD7//L/AAAAAAkAAAD7//P/AAAAAAkAAAD7//X/AAAAAAkAAAD7//b/AAAAAAkAAAD7//f/AAAAAAkAAAD7//j/AAAAAAkAAAD7//n/AAAAAAkAAAD7//r/AAAAAAkAAAD7//v/AAAAAAkAAAD7//z/AAAAAAkAAAD7//3/AAAAAAkAAAD7//7/AAAAAAkAAAD7////AAAAAAkAAAD7/wAAAAAAAAkAAAD7/wEAAAAAAAkAAAD7/wIAAAAAAAkAAAD8/wAAAAAAAAkAAAD8/wEAAAAAAAkAAAD8/wIAAAAAAAkAAAD9/wAAAAAAAAkAAAD9/wEAAAAAAAkAAAD9/wIAAAAAAAkAAAD+/wAAAAAAAAkAAAD+/wEAAAAAAAkAAAD+/wIAAAAAAAkAAAAEAPv/AAAAAAkAAAAFAPv/AAAAAAkAAAD8//v/AAAAAAkAAAD9//v/AAAAAAkAAAD+//v/AAAAAAkAAAD///v/AAAAAAkAAAAAAPv/AAAAAAkAAAABAPv/AAAAAAkAAAACAPv/AAAAAAkAAAADAPv/AAAAAAkAAAD///n/AAAAAAkAAAAAAPn/AAAAAAkAAAAAAPj/AAAAAAkAAAD///j/AAAAAAkAAAD///f/AAAAAAkAAAD///b/AAAAAAkAAAD///X/AAAAAAkAAAABAPT/AAAAAAkAAAACAPT/AAAAAAkAAAADAPT/AAAAAAkAAAADAPX/AAAAAAkAAAACAPX/AAAAAAkAAAABAPX/AAAAAAkAAAAAAPX/AAAAAAkAAAAAAPb/AAAAAAkAAAAAAPf/AAAAAAkAAAD5//X/AAAAAAkAAAD6//X/AAAAAAkAAAD7//T/AAAAAAkAAAD///T/AAAAAAkAAAAAAPT/AAAAAAkAAAADAO//AAAAAAkAAAACAO//AAAAAAkAAAABAO//AAAAAAkAAAAAAO//AAAAAAkAAAD//+//AAAAAAkAAAD+/+//AAAAAAkAAAD9/+//AAAAAAkAAAD8/+//AAAAAAkAAAD8/+7/AAAAAAkAAAD9/+7/AAAAAAkAAAD+/+7/AAAAAAkAAAD//+7/AAAAAAkAAAAAAO7/AAAAAAkAAAABAO7/AAAAAAkAAAACAO7/AAAAAAkAAAADAO7/AAAAAAkAAAAEAO7/AAAAAAkAAAAFAO7/AAAAAAkAAAAEAPP/AAADAAgAAAAFAPP/AAADAAgAAAAEAPL/AAAAAAkAAAAFAPL/AAAAAAkAAAAFAPT/AAAEAAgAAAAGAPX/AAAEAAgAAAAHAPb/AAAEAAgAAAAIAPf/AAAEAAgAAAAJAPj/AAAEAAgAAAAKAPn/AAAEAAgAAAALAPr/AAAEAAgAAAAMAPv/AAAEAAgAAAAFAPb/AAAEAAgAADAGAPf/AAAEAAgAADAHAPj/AAAEAAgAADAIAPn/AAAEAAgAADAJAPr/AAAAAAkAAAAJAPn/AAAAAAkAAAAIAPj/AAAAAAkAAAAHAPf/AAAAAAkAAAAGAPb/AAAAAAkAAAAFAPX/AAAAAAkAAAAKAPr/AAAAAAkAAAAKAPv/AAAAAAkAAAALAPv/AAAAAAkAAAADAPz/AAAAAAkAAAACAPz/AAAAAAkAAAABAPz/AAAAAAkAAAAAAPz/AAAAAAkAAAD///z/AAAAAAkAAAD+//z/AAAAAAkAAAD9//z/AAAAAAkAAAD8//z/AAAAAAkAAAD///r/AAADAAgAAAAAAPr/AAADAAgAAAAGAPL/AAAEAAgAADAHAPP/AAAEAAgAADAIAPT/AAAEAAgAADAJAPX/AAAEAAgAADAKAPb/AAAEAAgAADALAPf/AAAEAAgAADAMAPj/AAAEAAgAADANAPn/AAAEAAgAADAOAPr/AAAEAAgAADAOAPn/AAAAAAkAAAANAPj/AAAAAAkAAAAMAPf/AAAAAAkAAAALAPb/AAAAAAkAAAAKAPX/AAAAAAkAAAAJAPT/AAAAAAkAAAAIAPP/AAAAAAkAAAAHAPL/AAAAAAkAAAAGAPH/AAAAAAkAAAAGAPD/AAAEAAgAAAAHAPH/AAAEAAgAAAAIAPL/AAAEAAgAAAAJAPP/AAAEAAgAAAAKAPT/AAAEAAgAAAALAPX/AAAEAAgAAAAMAPb/AAAEAAgAAAANAPf/AAAEAAgAAAAOAPj/AAAEAAgAAAA=")
 tile_set = ExtResource("2_8b204")
 script = ExtResource("3_mnb4u")
 
-[node name="start" type="Node2D" parent="." groups=["start"]]
+[node name="start" type="Node2D" parent="." unique_id=1425506782 groups=["start"]]
 position = Vector2(-40, 0)
 
-[node name="Target" parent="." instance=ExtResource("4_uodtq")]
+[node name="Target" parent="." unique_id=582167109 instance=ExtResource("4_uodtq")]
 position = Vector2(120, -16)
 
-[node name="Target2" parent="." instance=ExtResource("4_uodtq")]
+[node name="Target2" parent="." unique_id=1396971576 instance=ExtResource("4_uodtq")]
 position = Vector2(120, -68)
 
-[node name="Target3" parent="." instance=ExtResource("4_uodtq")]
+[node name="Target3" parent="." unique_id=1485566863 instance=ExtResource("4_uodtq")]
 position = Vector2(-40, -112)
 
-[node name="Target4" parent="." instance=ExtResource("4_uodtq")]
+[node name="Target4" parent="." unique_id=1107173124 instance=ExtResource("4_uodtq")]
 position = Vector2(-40, -168)
 
-[node name="Target5" parent="." instance=ExtResource("4_uodtq")]
+[node name="Target5" parent="." unique_id=913357080 instance=ExtResource("4_uodtq")]
 position = Vector2(96, -192)
 
-[node name="Target6" parent="." instance=ExtResource("4_uodtq")]
+[node name="Target6" parent="." unique_id=1379580998 instance=ExtResource("4_uodtq")]
 position = Vector2(204, -84)
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=792135073]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 76.0
@@ -47,7 +47,7 @@ offset_right = 208.0
 offset_bottom = 76.0
 scale = Vector2(0.25, 0.25)
 
-[node name="key left" parent="Control" instance=ExtResource("5_8b204")]
+[node name="key left" parent="Control" unique_id=1210132391 instance=ExtResource("5_8b204")]
 layout_mode = 0
 offset_left = -16.0
 offset_top = 16.0
@@ -55,7 +55,7 @@ offset_right = 26.0
 offset_bottom = 52.0
 actionName = "down"
 
-[node name="key left2" parent="Control" instance=ExtResource("5_8b204")]
+[node name="key left2" parent="Control" unique_id=2016147383 instance=ExtResource("5_8b204")]
 layout_mode = 0
 offset_left = -16.0
 offset_top = 80.0
@@ -64,7 +64,7 @@ offset_bottom = 116.0
 actionName = "down"
 actionIndex = 1
 
-[node name="key left3" parent="Control" instance=ExtResource("5_8b204")]
+[node name="key left3" parent="Control" unique_id=1361213337 instance=ExtResource("5_8b204")]
 layout_mode = 0
 offset_left = -16.0
 offset_top = 144.0
@@ -73,7 +73,7 @@ offset_bottom = 180.0
 actionName = "down"
 actionIndex = 2
 
-[node name="key left4" parent="Control" instance=ExtResource("5_8b204")]
+[node name="key left4" parent="Control" unique_id=1789188588 instance=ExtResource("5_8b204")]
 layout_mode = 0
 offset_left = -16.0
 offset_top = 144.0
@@ -82,7 +82,7 @@ offset_bottom = 180.0
 actionName = "down"
 actionIndex = 2
 
-[node name="Label4" type="Label" parent="Control"]
+[node name="Label4" type="Label" parent="Control" unique_id=109512150]
 layout_mode = 0
 offset_left = -32.0
 offset_top = 112.0
@@ -91,7 +91,7 @@ offset_bottom = 157.0
 theme_override_font_sizes/font_size = 16
 text = "or"
 
-[node name="Label3" type="Label" parent="Control"]
+[node name="Label3" type="Label" parent="Control" unique_id=735457964]
 layout_mode = 0
 offset_left = -28.0
 offset_top = 48.0
@@ -100,16 +100,16 @@ offset_bottom = 93.0
 theme_override_font_sizes/font_size = 16
 text = "or"
 
-[node name="Control2" type="Control" parent="."]
+[node name="Control2" type="Control" parent="." unique_id=969584164]
 layout_mode = 3
 anchors_preset = 0
-offset_left = -4.0
+offset_left = 3.0
 offset_top = -140.0
-offset_right = 128.0
+offset_right = 135.0
 offset_bottom = -64.0
 scale = Vector2(0.25, 0.25)
 
-[node name="key left" parent="Control2" instance=ExtResource("5_8b204")]
+[node name="key left" parent="Control2" unique_id=817547565 instance=ExtResource("5_8b204")]
 layout_mode = 0
 offset_left = -16.0
 offset_top = 16.0
@@ -117,7 +117,7 @@ offset_right = 26.0
 offset_bottom = 52.0
 actionName = "down"
 
-[node name="key left2" parent="Control2" instance=ExtResource("5_8b204")]
+[node name="key left2" parent="Control2" unique_id=1456162253 instance=ExtResource("5_8b204")]
 layout_mode = 0
 offset_left = -16.0
 offset_top = 80.0
@@ -126,7 +126,7 @@ offset_bottom = 116.0
 actionName = "down"
 actionIndex = 1
 
-[node name="key left3" parent="Control2" instance=ExtResource("5_8b204")]
+[node name="key left3" parent="Control2" unique_id=1223207397 instance=ExtResource("5_8b204")]
 layout_mode = 0
 offset_left = -16.0
 offset_top = 144.0
@@ -135,7 +135,7 @@ offset_bottom = 180.0
 actionName = "down"
 actionIndex = 2
 
-[node name="Label3" type="Label" parent="Control2"]
+[node name="Label3" type="Label" parent="Control2" unique_id=628072860]
 layout_mode = 0
 offset_left = -32.0
 offset_top = 48.0
@@ -144,7 +144,7 @@ offset_bottom = 93.0
 theme_override_font_sizes/font_size = 16
 text = "or"
 
-[node name="Label3" type="Label" parent="Control2/Label3"]
+[node name="Label3" type="Label" parent="Control2/Label3" unique_id=515240820]
 layout_mode = 0
 offset_top = 64.0
 offset_right = 40.0
@@ -152,16 +152,16 @@ offset_bottom = 109.0
 theme_override_font_sizes/font_size = 16
 text = "or"
 
-[node name="Control3" type="Control" parent="."]
+[node name="Control3" type="Control" parent="." unique_id=1752215479]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 80.0
+offset_left = 83.0
 offset_top = -252.0
-offset_right = 212.0
+offset_right = 215.0
 offset_bottom = -176.0
 scale = Vector2(0.25, 0.25)
 
-[node name="key left" parent="Control3" instance=ExtResource("5_8b204")]
+[node name="key left" parent="Control3" unique_id=1090835072 instance=ExtResource("5_8b204")]
 layout_mode = 0
 offset_left = -16.0
 offset_top = 16.0
@@ -169,7 +169,7 @@ offset_right = 26.0
 offset_bottom = 52.0
 actionName = "down"
 
-[node name="key left2" parent="Control3" instance=ExtResource("5_8b204")]
+[node name="key left2" parent="Control3" unique_id=714266169 instance=ExtResource("5_8b204")]
 layout_mode = 0
 offset_left = -16.0
 offset_top = 80.0
@@ -178,7 +178,7 @@ offset_bottom = 116.0
 actionName = "down"
 actionIndex = 1
 
-[node name="key left3" parent="Control3" instance=ExtResource("5_8b204")]
+[node name="key left3" parent="Control3" unique_id=1969847341 instance=ExtResource("5_8b204")]
 layout_mode = 0
 offset_left = -16.0
 offset_top = 144.0
@@ -187,7 +187,7 @@ offset_bottom = 180.0
 actionName = "down"
 actionIndex = 2
 
-[node name="Label3" type="Label" parent="Control3"]
+[node name="Label3" type="Label" parent="Control3" unique_id=1804582158]
 layout_mode = 0
 offset_left = -32.0
 offset_top = 48.0
@@ -196,7 +196,7 @@ offset_bottom = 93.0
 theme_override_font_sizes/font_size = 16
 text = "or"
 
-[node name="Label3" type="Label" parent="Control3/Label3"]
+[node name="Label3" type="Label" parent="Control3/Label3" unique_id=1420830648]
 layout_mode = 0
 offset_top = 64.0
 offset_right = 40.0
