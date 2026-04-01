@@ -578,11 +578,11 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed("jump"):
 					velocity.y = JUMP_VELOCITY
 			else:
-				if len(leftDetect.get_overlapping_bodies()) > 0:
+				if leftDetect.has_overlapping_bodies():
 					wallOnLeft = true
 				else:
 					wallOnLeft = false
-				if len(rightDetect.get_overlapping_bodies()) > 0:
+				if rightDetect.has_overlapping_bodies():
 					wallOnRight = true
 				else:
 					wallOnRight = false
@@ -591,13 +591,14 @@ func _physics_process(delta):
 				if leftWallRay.is_colliding():
 					_walljump_emit(leftWallRay.get_collision_point(), delta)
 				if Input.is_action_just_pressed("jump"):
-					wall_jump(1)
+					if check_tiles_in_area(leftDetect):
+						wall_jump(1)
 			if wallOnRight:
 				if rightWallRay.is_colliding():
 					_walljump_emit(rightWallRay.get_collision_point(), delta)
 				if Input.is_action_just_pressed("jump"):
-					wall_jump(-1)
-
+					if check_tiles_in_area(rightDetect):
+						wall_jump(-1)
 			if gun:
 				if Input.is_action_pressed("shoot"):
 					isChargingGun = true
@@ -683,10 +684,27 @@ func _physics_process(delta):
 		State.DISABLE_COMPLETELY:
 			pass
 		State.DYING:
-			
 			pass
 		State.DISABLE_PHYSICS:
 			pass
+
+func check_tiles_in_area(area: Area2D):
+	for body in area.get_overlapping_bodies():
+		if body is TileMapLayer:
+			var shape: CollisionShape2D = area.get_child(0)
+			var arrPoints: Array[Vector2i] = [
+				shape.global_position + Vector2(shape.shape.size.x, shape.shape.size.y),
+				shape.global_position + Vector2(-shape.shape.size.x, shape.shape.size.y),
+				shape.global_position + Vector2(shape.shape.size.x, -shape.shape.size.y),
+				shape.global_position + Vector2(-shape.shape.size.x, -shape.shape.size.y)
+			]
+			var space_state = get_world_2d().direct_space_state
+			for point in arrPoints:
+				var collision = space_state.intersect_ray(PhysicsRayQueryParameters2D.create(Vector2(global_position.x, point.y), point, area.collision_mask))
+				if collision.has("normal"):
+					if collision["normal"].y == 0 && abs(collision["normal"].x) == 1:
+						return true
+	return false
 
 func wall_jump(dir: int):
 	if velocity.y < -MIN_SLIDE_BOOST_SPEED:
