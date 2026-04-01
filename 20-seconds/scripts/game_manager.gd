@@ -213,7 +213,8 @@ func queue_free_menus():
 
 func load_level_select(type: LevelSelect.Type):
 	queue_free_menus()
-	queue_free_in_game_objs()
+	if type == LevelSelect.Type.FromTitle:
+		queue_free_in_game_objs()
 	levelSelect = await spawn(levelSelectScene)
 	levelSelect.initialize(gameSave, type)
 	levelSelect.level_selected.connect(load_level)

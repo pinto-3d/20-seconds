@@ -244,12 +244,28 @@ z_index = 100
 position = Vector2(4, 0)
 target_position = Vector2(0, 2)
 
-[node name="leftwallray" type="RayCast2D" parent="." unique_id=593701465]
+[node name="leftwallray2" type="RayCast2D" parent="." unique_id=593701465]
 position = Vector2(0, -6)
 target_position = Vector2(-9, 0)
 
-[node name="rightwallray" type="RayCast2D" parent="." unique_id=272957136]
+[node name="rightwallray2" type="RayCast2D" parent="." unique_id=272957136]
 position = Vector2(0, -6)
+target_position = Vector2(9, 0)
+
+[node name="leftwallray1" type="RayCast2D" parent="." unique_id=559602845]
+position = Vector2(0, -10)
+target_position = Vector2(-9, 0)
+
+[node name="rightwallray1" type="RayCast2D" parent="." unique_id=791979452]
+position = Vector2(0, -10)
+target_position = Vector2(9, 0)
+
+[node name="leftwallray3" type="RayCast2D" parent="." unique_id=57295471]
+position = Vector2(0, -2)
+target_position = Vector2(-9, 0)
+
+[node name="rightwallray3" type="RayCast2D" parent="." unique_id=2126777781]
+position = Vector2(0, -2)
 target_position = Vector2(9, 0)
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1628682322]

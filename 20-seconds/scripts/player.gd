@@ -25,15 +25,12 @@ var centerHead: Node2D
 var centerBody: Node2D
 var centerLegs: Node2D
 
-var leftWallRay: RayCast2D
-var rightWallRay: RayCast2D
+var leftWallRays: Array[RayCast2D] = []
+var rightWallRays: Array[RayCast2D] = []
 var wallOnLeft: bool = false
 var wallOnRight: bool = false
 var downRays: Array[RayCast2D]
 const DOWN_RAY_LENGTH: float = 0.01
-
-var leftDetect: Area2D
-var rightDetect: Area2D
 
 const SCARF_POS_LEFT_X: float = -127
 const SCARF_POS_RIGHT_X: float = 127
@@ -211,15 +208,21 @@ func _ready():
 	centerBody = $sprites/body/bodyCenter
 	centerLegs = $sprites/legs/legsCenter
 	
-	leftWallRay = $leftwallray
-	rightWallRay = $rightwallray
+	leftWallRays = [
+		$leftwallray1,
+		$leftwallray2,
+		$leftwallray3,
+	]
+	rightWallRays = [
+		$rightwallray1,
+		$rightwallray2,
+		$rightwallray3,
+	]
+	
 	downRays.append($downray)
 	downRays[0].target_position.y = DOWN_RAY_LENGTH
 	downRays.append($downray2)
 	downRays[1].target_position.y = DOWN_RAY_LENGTH
-	
-	leftDetect = $leftDetect
-	rightDetect = $rightDetect
 	
 	crouchDetect = $crouchDetect
 	
@@ -578,27 +581,25 @@ func _physics_process(delta):
 				if Input.is_action_just_pressed("jump"):
 					velocity.y = JUMP_VELOCITY
 			else:
-				if leftDetect.has_overlapping_bodies():
+				if rays_detect(leftWallRays):
 					wallOnLeft = true
 				else:
 					wallOnLeft = false
-				if rightDetect.has_overlapping_bodies():
+				if rays_detect(rightWallRays):
 					wallOnRight = true
 				else:
 					wallOnRight = false
 
 			if wallOnLeft:
-				if leftWallRay.is_colliding():
-					_walljump_emit(leftWallRay.get_collision_point(), delta)
+				if leftWallRays[1].is_colliding():
+					_walljump_emit(leftWallRays[1].get_collision_point(), delta)
 				if Input.is_action_just_pressed("jump"):
-					if check_tiles_in_area(leftDetect):
-						wall_jump(1)
+					wall_jump(1)
 			if wallOnRight:
-				if rightWallRay.is_colliding():
-					_walljump_emit(rightWallRay.get_collision_point(), delta)
+				if rightWallRays[1].is_colliding():
+					_walljump_emit(rightWallRays[1].get_collision_point(), delta)
 				if Input.is_action_just_pressed("jump"):
-					if check_tiles_in_area(rightDetect):
-						wall_jump(-1)
+					wall_jump(-1)
 			if gun:
 				if Input.is_action_pressed("shoot"):
 					isChargingGun = true
@@ -687,6 +688,14 @@ func _physics_process(delta):
 			pass
 		State.DISABLE_PHYSICS:
 			pass
+
+func rays_detect(rays: Array[RayCast2D]):
+	for ray in rays:
+		if ray.is_colliding():
+			var normal = ray.get_collision_normal()
+			if normal.y == 0 and abs(normal.x) == 1:
+				return true
+	return false
 
 func check_tiles_in_area(area: Area2D):
 	for body in area.get_overlapping_bodies():
@@ -885,6 +894,8 @@ func slide(delta: float):
 				else:
 					isOnSlant = false
 			else:
+				if isOnSlant:
+					pass
 				isOnSlant = false
 				
 				#slide_tick(delta, downNormals[chosen], preCollisionVelocity)

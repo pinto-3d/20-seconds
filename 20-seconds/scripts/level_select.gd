@@ -30,6 +30,7 @@ func initialize(gameInfo: Save.GameInfo, type: Type):
 	for i in range(0, gameInfo.lastLevelBeat+2):
 		if i > gameInfo.levelInfos.size()-1:
 			return
+			
 		if not gameInfo.levelInfos[i].selectable:
 			if gameInfo.lastLevelBeat > 0:
 				continue
@@ -38,8 +39,8 @@ func initialize(gameInfo: Save.GameInfo, type: Type):
 		add_item_to_delay(btn)
 		btn.sbtn_pressed.connect(_level_selected)
 		btn.reparent(grid)
-		if i == gameInfo.lastLevelBeat-1:
-			btn.grab_focus()
+		if i == 1:
+			grid.get_child(0).grab_focus()
 
 func _level_selected(index: int):
 	level_selected.emit(index)
