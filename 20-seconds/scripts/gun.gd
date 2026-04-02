@@ -38,6 +38,9 @@ func _ready() -> void:
 	audio = $AudioStreamPlayer
 	chargeSprite = $gun/gunPoint/chargeSprite
 	chargeSprite.visible = false
+	
+	var emitter: GPUParticles2D = await G.spawn(emitterScene)
+	emitter.global_position = Vector2(9999, -9999)
 
 func play_sound(stream: AudioStream):
 	if stream == asLargeShot:
@@ -54,6 +57,14 @@ func play_random_sound(arr: Array[AudioStream]):
 
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
+	if holder:
+		if holder is Player:
+			if (holder as Player).state == Player.State.DISABLE_PHYSICS:
+				return
+			elif (holder as Player).state == Player.State.DISABLE_COMPLETELY:
+				return
+			pass
+	
 	if isCharging:
 		chargeSprite.visible = true
 		if chargeIsShrinking:

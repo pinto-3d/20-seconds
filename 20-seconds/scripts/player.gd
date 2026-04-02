@@ -250,6 +250,8 @@ func _process(delta):
 	match state:
 		State.DISABLE_PHYSICS:
 			return
+		State.DISABLE_COMPLETELY:
+			return
 	
 	if abs(inputVector.x) > INPUT_DEADZONE:
 		@warning_ignore("unused_parameter", "narrowing_conversion")
