@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://duecmmdknwi51" path="res://scripts/level_button.gd" id="1_i0sit"]
 
 [node name="Level Button" type="Button" unique_id=2055149397]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(100, 100)
 theme = ExtResource("1_hrusj")
 theme_override_font_sizes/font_size = 32
 text = "1

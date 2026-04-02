@@ -80,7 +80,7 @@ func _process(delta: float) -> void:
 		if allowSkipInput:
 			if Input.is_action_just_released("advance_text"):
 				_show_complete_current_message()
-			if Input.is_action_just_released("skip_text"):
+			elif Input.is_action_just_released("skip_text"):
 				_skip_input_pressed()
 		
 		if mode == Mode.PerChar or mode == Mode.PerCharContinuing:

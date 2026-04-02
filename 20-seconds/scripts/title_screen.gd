@@ -13,12 +13,12 @@ signal levelSelectPressed(type: LevelSelect.Type)
 func _ready() -> void:
 	super._ready()
 	start = $"Control/Buttons/VBoxContainer/Start Button"
-	start.pressed.connect(_start_pressed)
+	start.button_up.connect(_start_pressed)
 	var settings: Button = $"Control/Buttons/VBoxContainer/Settings Button"
-	settings.pressed.connect(_settings_pressed)
+	settings.button_up.connect(_settings_pressed)
 	
 	btnLevelSelect = $"Control/Buttons/VBoxContainer/Level Select Button"
-	btnLevelSelect.pressed.connect(_level_select_pressed)
+	btnLevelSelect.button_up.connect(_level_select_pressed)
 	
 	lblBottomLeft = $Control/lblBottomLeft
 

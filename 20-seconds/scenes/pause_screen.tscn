@@ -1,24 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://b2iue32ndn5wh"]
+[gd_scene format=3 uid="uid://b2iue32ndn5wh"]
 
 [ext_resource type="Script" uid="uid://bursccaau0w2t" path="res://scripts/pause_screen.gd" id="1_gchx3"]
+[ext_resource type="Theme" uid="uid://b67ktu5hqqt6u" path="res://default_font_style.tres" id="2_27awe"]
 [ext_resource type="Script" uid="uid://nd7cyc8t3w8l" path="res://scripts/screen_button.gd" id="2_hr2n2"]
 [ext_resource type="PackedScene" uid="uid://c3qp05vstbspj" path="res://scenes/button_hint.tscn" id="3_hr2n2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fgkus"]
 font_size = 48
 
-[node name="pause screen" type="CanvasLayer"]
+[node name="pause screen" type="CanvasLayer" unique_id=1347823742]
 layer = 2
 script = ExtResource("1_gchx3")
 
-[node name="Control" type="Panel" parent="."]
+[node name="Control" type="Panel" parent="." unique_id=2099131915]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Buttons" type="CenterContainer" parent="Control"]
+[node name="Buttons" type="CenterContainer" parent="Control" unique_id=536954155]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -32,33 +33,36 @@ offset_bottom = 125.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/Buttons"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Buttons" unique_id=1267868222]
 layout_mode = 2
 theme_override_constants/separation = 32
 
-[node name="Resume" type="Button" parent="Control/Buttons/VBoxContainer"]
+[node name="Resume" type="Button" parent="Control/Buttons/VBoxContainer" unique_id=1025216633]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme = ExtResource("2_27awe")
 theme_override_font_sizes/font_size = 32
 text = "Resume"
 script = ExtResource("2_hr2n2")
 startFocused = true
 
-[node name="LevelSelect" type="Button" parent="Control/Buttons/VBoxContainer"]
+[node name="LevelSelect" type="Button" parent="Control/Buttons/VBoxContainer" unique_id=1526305429]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme = ExtResource("2_27awe")
 theme_override_font_sizes/font_size = 32
 text = "Level Select"
 script = ExtResource("2_hr2n2")
 
-[node name="Main Menu" type="Button" parent="Control/Buttons/VBoxContainer"]
+[node name="Main Menu" type="Button" parent="Control/Buttons/VBoxContainer" unique_id=2064439142]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+theme = ExtResource("2_27awe")
 theme_override_font_sizes/font_size = 32
 text = "Main Menu"
 script = ExtResource("2_hr2n2")
 
-[node name="Label" type="Label" parent="Control"]
+[node name="Label" type="Label" parent="Control" unique_id=93453342]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -76,7 +80,7 @@ label_settings = SubResource("LabelSettings_fgkus")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="key icon" parent="Control" instance=ExtResource("3_hr2n2")]
+[node name="key icon" parent="Control" unique_id=1232759132 instance=ExtResource("3_hr2n2")]
 layout_mode = 0
 offset_left = 28.0
 offset_top = 672.0
@@ -84,7 +88,7 @@ offset_right = 70.0
 offset_bottom = 708.0
 actionName = "restart"
 
-[node name="Label" type="Label" parent="Control/key icon"]
+[node name="Label" type="Label" parent="Control/key icon" unique_id=1431067890]
 layout_mode = 0
 offset_left = 64.0
 offset_top = 4.0

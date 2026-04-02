@@ -1,6 +1,30 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b67ktu5hqqt6u"]
+[gd_resource type="Theme" format=3 uid="uid://b67ktu5hqqt6u"]
 
 [ext_resource type="FontFile" uid="uid://gcel8py47lh" path="res://font/MonacoB2.otf" id="1_b0jva"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdk4a"]
+draw_center = false
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(1, 1, 1, 0.6)
+shadow_size = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b0jva"]
+content_margin_left = 32.0
+content_margin_top = 4.0
+content_margin_right = 32.0
+content_margin_bottom = 4.0
+bg_color = Color(0.24434666, 0.23759998, 0.44, 0.8352941)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.4509804)
+shadow_size = 16
+
 [resource]
 default_font = ExtResource("1_b0jva")
+Button/styles/focus = SubResource("StyleBoxFlat_gdk4a")
+Button/styles/normal = SubResource("StyleBoxFlat_b0jva")

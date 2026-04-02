@@ -64,9 +64,7 @@ func _skip():
 
 func _process(delta: float) -> void:
 	
-	if Input.is_action_just_released("skip_text"):
-		_skip()
-	if Input.is_action_just_released("pause"):
+	if Input.is_action_just_released("skip_text") or Input.is_action_just_released("pause"):
 		_skip()
 	if isActive:
 		
