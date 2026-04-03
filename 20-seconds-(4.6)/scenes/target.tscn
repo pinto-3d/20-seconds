@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4geu3gunpjal"]
+
+[ext_resource type="Script" uid="uid://gb36oaltef20" path="res://scripts/target.gd" id="1_b5a2r"]
+[ext_resource type="Texture2D" uid="uid://vp1aks3djbd" path="res://sprites/target.png" id="1_b37e2"]
+[ext_resource type="Texture2D" uid="uid://df5pbucj48l8g" path="res://sprites/circle.png" id="3_nlbrr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b5a2r"]
+radius = 6.5
+
+[node name="Target" type="CharacterBody2D" groups=["target"]]
+z_index = 3
+collision_layer = 4
+collision_mask = 11
+script = ExtResource("1_b5a2r")
+
+[node name="shape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_b5a2r")
+
+[node name="sprite" type="Sprite2D" parent="."]
+z_index = -3
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_b37e2")
+
+[node name="end" type="Node2D" parent="."]
+
+[node name="end_graphic" type="Sprite2D" parent="end"]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_nlbrr")

@@ -1,0 +1,49 @@
+[gd_scene format=4 uid="uid://cf1viad0xppjc"]
+
+[ext_resource type="Script" uid="uid://da2uh7p8pk8n6" path="res://levels/base_level.gd" id="1_y6emt"]
+[ext_resource type="TileSet" uid="uid://ct0y8s1mnvw7l" path="res://tileset.tres" id="2_lus6a"]
+[ext_resource type="Script" uid="uid://15sj45ac5qbs" path="res://scripts/tiles_platform.gd" id="3_esfbr"]
+[ext_resource type="PackedScene" uid="uid://b4geu3gunpjal" path="res://scenes/target.tscn" id="4_y6emt"]
+
+[node name="level" type="Node2D" unique_id=1203836439]
+script = ExtResource("1_y6emt")
+paletteName = "gun"
+
+[node name="platform" type="TileMapLayer" parent="." unique_id=1454333023]
+scale = Vector2(0.1, 0.1)
+tile_map_data = PackedByteArray("AAD///b/AAADAAgAAAD///f/AAAFAAcAABD///j/AAAAAAkAAAD///n/AAAEAAgAAEAAAPj/AAADAAgAADAAAPn/AAAAAAkAAAABAPj/AAADAAgAADABAPn/AAAAAAkAAAACAPj/AAADAAgAADACAPn/AAAAAAkAAAADAPj/AAADAAgAACADAPn/AAAAAAkAAAAEAPf/AAAFAAcAADAEAPj/AAADAAYAAFAEAPn/AAAAAAkAAAAFAPf/AAAAAAkAAAAFAPj/AAAAAAkAAAAFAPn/AAAEAAgAAFD+//b/AAADAAYAAGD+//f/AAADAAYAADADAPf/AAADAAYAABD9//b/AAAAAAkAAAD9//f/AAAAAAkAAAD9/+//AAAEAAgAAGD9//D/AAAAAAkAAAD9//H/AAAAAAkAAAD9//L/AAAEAAgAADD+/+//AAAAAAkAAAD+//D/AAADAAYAAGD//+//AAAAAAkAAAD///D/AAAGAAcAADD///T/AAAAAAkAAAAPAPT/AAAFAAgAADAQAPT/AAAAAAkAAAARAPT/AAAAAAkAAAASAPX/AAAAAAkAAAAPAPP/AAAAAAkAAAADAPb/AAAAAAkAAAAEAPb/AAAAAAkAAAAFAPb/AAAAAAkAAAAGAPb/AAAAAAkAAAAHAPb/AAAAAAkAAAAIAPb/AAAAAAkAAAAJAPb/AAAAAAkAAAAKAPb/AAAAAAkAAAALAPb/AAAAAAkAAAAMAPb/AAAAAAkAAAANAPb/AAAAAAkAAAAOAPb/AAAAAAkAAAAPAPb/AAAAAAkAAAAQAPb/AAAAAAkAAAARAPb/AAAAAAkAAAASAPb/AAAEAAgAAFD9//X/AAAEAAgAAGD+//X/AAAAAAkAAAD///X/AAAAAAkAAAAQAPX/AAABAAcAAAARAPX/AAADAAgAAFD///P/AAAAAAkAAAD+//H/AAADAAYAADD///H/AAAGAAcAABD+//L/AAAAAAkAAAD///L/AAAAAAkAAAAEAPP/AAAAAAkAAAAFAPP/AAAAAAkAAAAGAPP/AAAAAAkAAAAHAPP/AAAAAAkAAAAIAPP/AAAAAAkAAAAJAPP/AAAAAAkAAAAKAPP/AAAAAAkAAAALAPP/AAAAAAkAAAAMAPP/AAAAAAkAAAADAPP/AAAAAAkAAAADAPT/AAACAAYAADAEAPT/AAADAAgAAAAFAPT/AAADAAgAAAAGAPT/AAADAAgAAAAHAPT/AAADAAgAAAAIAPT/AAADAAgAAAAJAPT/AAADAAgAAAAKAPT/AAADAAgAAAALAPT/AAADAAgAAAAMAPT/AAADAAgAAAAAAO//AAAAAAkAAAABAO//AAAAAAkAAAACAO7/AAAEAAgAAGACAO//AAAAAAkAAAADAO7/AAAAAAkAAAADAO//AAADAAgAAEAEAO7/AAAAAAkAAAAEAO//AAADAAgAAFAFAO7/AAAEAAgAAHAFAO//AAAAAAkAAAAGAO//AAAAAAkAAAAHAO7/AAAEAAgAAGAIAO7/AAAAAAkAAAAJAO7/AAAAAAkAAAAKAO7/AAAAAAkAAAALAO3/AAAEAAgAABALAO7/AAAAAAkAAAAMAO3/AAAAAAkAAAANAO3/AAAAAAkAAAAAAPD/AAADAAgAAAABAPD/AAADAAgAAAACAPD/AAADAAgAAAAFAPD/AAADAAgAAAAGAPD/AAADAAgAAAAHAPD/AAADAAgAAAAJAPD/AAADAAgAAAAKAPD/AAADAAgAAAALAPD/AAADAAgAAAAMAPD/AAADAAgAAAAHAO//AAAAAAkAAAADAPD/AAAAAAcAAAAEAPD/AAAAAAcAABAIAPD/AAABAAcAAAAOAO3/AAAAAAkAAAAPAO3/AAAAAAkAAAAQAO3/AAAAAAkAAAAQAPH/AAADAAYAAFAQAPL/AAAAAAkAAAARAO3/AAAEAAgAAAARAPH/AAAAAAkAAAARAPL/AAAEAAgAAFAPAPH/AAADAAgAACAPAPL/AAAAAAkAAAARAO7/AAAAAAkAAAARAO//AAAAAAkAAAARAPD/AAAAAAkAAAASAPT/AAAEAAgAAAD+//j/AAAAAAkAAAD9//j/AAAEAAgAADAMAO7/AAADAAgAAAANAO7/AAADAAgAAAAOAO7/AAADAAgAAAAPAO7/AAADAAgAAAAQAO7/AAADAAYAAAAQAO//AAADAAgAAFAQAPD/AAADAAgAAFA=")
+tile_set = ExtResource("2_lus6a")
+script = ExtResource("3_esfbr")
+
+[node name="start" type="Node2D" parent="." unique_id=1296638762 groups=["start"]]
+position = Vector2(40, -118)
+
+[node name="Target4" parent="." unique_id=949851196 instance=ExtResource("4_y6emt")]
+position = Vector2(64, -126)
+
+[node name="Target5" parent="." unique_id=291348646 instance=ExtResource("4_y6emt")]
+position = Vector2(-16, -146)
+
+[node name="Target6" parent="." unique_id=831423070 instance=ExtResource("4_y6emt")]
+position = Vector2(-16, -240)
+
+[node name="Target7" parent="." unique_id=288224180 instance=ExtResource("4_y6emt")]
+position = Vector2(272, -168)
+
+[node name="Target8" parent="." unique_id=444264654 instance=ExtResource("4_y6emt")]
+position = Vector2(139, -264)
+
+[node name="Target9" parent="." unique_id=1842849669 instance=ExtResource("4_y6emt")]
+position = Vector2(84, -168)
+
+[node name="Target10" parent="." unique_id=1952210547 instance=ExtResource("4_y6emt")]
+position = Vector2(128, -168)
+
+[node name="Target11" parent="." unique_id=1587337630 instance=ExtResource("4_y6emt")]
+position = Vector2(104, -216)
+
+[node name="Target12" parent="." unique_id=1994656969 instance=ExtResource("4_y6emt")]
+position = Vector2(256, -240)
+
+[node name="Target13" parent="." unique_id=1413006849 instance=ExtResource("4_y6emt")]
+position = Vector2(64, -264)

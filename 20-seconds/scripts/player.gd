@@ -698,6 +698,12 @@ func rays_detect(rays: Array[RayCast2D]):
 			if normal.y == 0 and abs(normal.x) == 1:
 				return true
 	return false
+	
+func rays_update():
+	for ray in leftWallRays:
+		ray.force_raycast_update()
+	for ray in rightWallRays:
+		ray.force_raycast_update()
 
 func check_tiles_in_area(area: Area2D):
 	for body in area.get_overlapping_bodies():

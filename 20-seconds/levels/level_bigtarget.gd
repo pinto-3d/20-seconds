@@ -174,6 +174,8 @@ func spawn_boss_level(index: int):
 	bossLevelsSpawned += 1
 	
 	G.player.velocity = Vector2.ZERO
+	G.player.rays_update()
+	
 
 func bossLevelBeat():
 	if currentBossLevel:

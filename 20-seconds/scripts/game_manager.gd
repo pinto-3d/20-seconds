@@ -22,6 +22,9 @@ const BACKGROUND_ALPHA_MULT: float = 0.8
 var inGameUI: InGameUI
 var inGameUIScene: PackedScene = preload("res://scenes/ingame_ui.tscn")
 
+var ending: Ending
+var endingScene: PackedScene = preload("res://scenes/ending.tscn")
+
 var levelSelect: LevelSelect
 var levelSelectScene: PackedScene = preload("res://scenes/level_select.tscn")
 
@@ -55,6 +58,11 @@ var debug: bool = true
 
 var agentName: String = "BILL"
 
+var inputType: InputType
+enum InputType {
+	Key, Button
+}
+
 signal disablePlayerInput()
 signal sendMessageQueue(messages: Array[Textbox.MsgInfo])
 signal levelLoaded()
@@ -71,7 +79,8 @@ var isBossFight: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if OS.has_feature('web'):
+	debug = false
+	if OS.has_feature('web') or OS.has_feature('windows'):
 		debug = false
 	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
 		usingTouchControls = true
@@ -102,7 +111,7 @@ func _ready():
 	levelPaths.append("res://levels/level bigtarget.tscn");
 	
 	load_save_info()
-	
+
 	load_intro()
 	
 	audio = AudioStreamPlayer.new()
@@ -231,6 +240,16 @@ func queue_free_in_game_objs():
 	if inGameUI:
 		inGameUI.queue_free()
 
+func load_ending():
+	ending = await spawn(endingScene)
+	ending.ended.connect(unload_ending)
+	
+func unload_ending():
+	if ending:
+		ending.queue_free()
+	load_titlescreen()
+	pass
+
 func spawn_ui():
 	inGameUI = await spawn(inGameUIScene)
 	inGameUI.textbox.textboxClosed.connect(message_box_finished)
@@ -316,6 +335,46 @@ func spawn(scene: PackedScene):
 		await node.ready
 	return node
 
+func _input(event):
+	if event is InputEventJoypadMotion:
+		return
+	
+	if event is InputEventKey:
+		var joy = ""
+		if joy != prevJoyName:
+			prevJoyName = joy
+			get_controller_type(joy)
+		pass
+	elif event is InputEventJoypadButton:
+		var joy = Input.get_joy_name(0)
+		if joy != prevJoyName:
+			prevJoyName = joy
+			get_controller_type(joy)
+		pass
+
+signal controllerChanged(controllerType: ControllerType)
+var controllerType: ControllerType
+var prevJoyName: String
+
+enum ControllerType {
+	PS, Xbox, Nintendo, PC
+}
+
+func get_controller_type(name:String):
+	if name == "":
+		controllerType = ControllerType.PC
+		pass
+	elif name.contains("PS5") or name.contains("PS4") or name.contains("PS3") or name.contains("PS2") or name.contains("PS1") or name.contains("Sony"):
+		controllerType = ControllerType.PS
+		pass
+	elif name.contains("Nintendo") or name.contains("Switch") or name.contains("Wii") or name.contains("SNES") or name.contains("Wii"):
+		controllerType = ControllerType.Nintendo
+		pass
+	else:
+		controllerType = ControllerType.Xbox
+		pass
+	controllerChanged.emit(controllerType)
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")

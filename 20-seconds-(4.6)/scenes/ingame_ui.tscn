@@ -1,0 +1,206 @@
+[gd_scene format=3 uid="uid://bon2jdlcwqgiw"]
+
+[ext_resource type="Script" uid="uid://ci377c1f123v5" path="res://scripts/ingame_ui.gd" id="1_v3yap"]
+[ext_resource type="PackedScene" uid="uid://cwnldookuoxx2" path="res://scenes/target_ui.tscn" id="2_f6424"]
+[ext_resource type="Script" uid="uid://d3sgbcowqol5g" path="res://scripts/timer.gd" id="2_uyn70"]
+[ext_resource type="Theme" uid="uid://b67ktu5hqqt6u" path="res://default_font_style.tres" id="3_npobg"]
+[ext_resource type="Texture2D" uid="uid://bb0tmgtsb53dj" path="res://sprites/timer sprite0.png" id="3_yrj12"]
+[ext_resource type="PackedScene" uid="uid://cn4umnxmqbesx" path="res://scenes/textbox.tscn" id="4_hifx3"]
+[ext_resource type="FontFile" uid="uid://xpjs2mvyhmku" path="res://font/MonacoB2-Bold.otf" id="4_i42rf"]
+[ext_resource type="Texture2D" uid="uid://duw2ede05edj6" path="res://sprites/timer sprite colon.png" id="4_r7y21"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uyn70"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6424"]
+bg_color = Color(0.80611193, 0.12575388, 0, 1)
+
+[node name="ingameUI" type="CanvasLayer" unique_id=805630491]
+script = ExtResource("1_v3yap")
+
+[node name="Control" type="Control" parent="." unique_id=702122680]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="boss health" type="ProgressBar" parent="Control" unique_id=1182758108]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -212.0
+offset_right = 212.0
+offset_bottom = 27.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme_override_styles/background = SubResource("StyleBoxFlat_uyn70")
+theme_override_styles/fill = SubResource("StyleBoxFlat_f6424")
+max_value = 20.0
+step = 1.0
+value = 20.0
+show_percentage = false
+
+[node name="topHalf" type="HBoxContainer" parent="Control" unique_id=358788825]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 324.0
+grow_horizontal = 2
+
+[node name="left" type="Control" parent="Control/topHalf" unique_id=1515220870]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/topHalf/left" unique_id=400550851]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/topHalf/left/MarginContainer" unique_id=738108172]
+layout_mode = 2
+
+[node name="lblDebug" type="Label" parent="Control/topHalf/left/MarginContainer/VBoxContainer" unique_id=1812846400]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Speed:"
+
+[node name="lblLevelNum" type="Label" parent="Control/topHalf/left/MarginContainer/VBoxContainer" unique_id=2000042683]
+layout_mode = 2
+
+[node name="right" type="Control" parent="Control/topHalf" unique_id=1816708879]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Panel" type="PanelContainer" parent="Control/topHalf/right" unique_id=1076683228]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -512.0
+offset_bottom = 276.0
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(512, 0)
+
+[node name="Timer" type="VBoxContainer" parent="Control/topHalf/right/Panel" unique_id=730947647]
+layout_mode = 2
+script = ExtResource("2_uyn70")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/topHalf/right/Panel/Timer" unique_id=513420576]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Timer" type="VBoxContainer" parent="Control/topHalf/right/Panel/Timer/MarginContainer" unique_id=328300051]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+alignment = 2
+
+[node name="Panel" type="HBoxContainer" parent="Control/topHalf/right/Panel/Timer/MarginContainer/Timer" unique_id=2112050500]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="0" type="TextureRect" parent="Control/topHalf/right/Panel/Timer/MarginContainer/Timer/Panel" unique_id=1838490758]
+layout_mode = 2
+texture = ExtResource("3_yrj12")
+
+[node name="1" type="TextureRect" parent="Control/topHalf/right/Panel/Timer/MarginContainer/Timer/Panel" unique_id=975704102]
+layout_mode = 2
+texture = ExtResource("3_yrj12")
+
+[node name="_" type="TextureRect" parent="Control/topHalf/right/Panel/Timer/MarginContainer/Timer/Panel" unique_id=1767842319]
+layout_mode = 2
+texture = ExtResource("4_r7y21")
+
+[node name="2" type="TextureRect" parent="Control/topHalf/right/Panel/Timer/MarginContainer/Timer/Panel" unique_id=614747321]
+layout_mode = 2
+texture = ExtResource("3_yrj12")
+
+[node name="3" type="TextureRect" parent="Control/topHalf/right/Panel/Timer/MarginContainer/Timer/Panel" unique_id=756919864]
+layout_mode = 2
+texture = ExtResource("3_yrj12")
+
+[node name="LowerText" type="Label" parent="Control/topHalf/right/Panel/Timer" unique_id=2047709592]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("3_npobg")
+theme_override_fonts/font = ExtResource("4_i42rf")
+theme_override_font_sizes/font_size = 64
+text = "FIRST CLEAR!"
+horizontal_alignment = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Control/topHalf/right/Panel/Timer" unique_id=1927382841]
+
+[node name="Target UI" parent="Control/topHalf/right" unique_id=2026096654 instance=ExtResource("2_f6424")]
+layout_mode = 1
+offset_left = -85.0
+offset_top = 150.0
+offset_bottom = 195.0
+alignment = 2
+
+[node name="bottomHalf" type="Control" parent="Control" unique_id=1399355041]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -324.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/bottomHalf" unique_id=1953939846]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -272.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset = Vector2(640, 96)
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Textbox" parent="Control/bottomHalf/MarginContainer" unique_id=88157116 instance=ExtResource("4_hifx3")]
+layout_mode = 2
+
+[node name="Text" parent="Control/bottomHalf/MarginContainer/Textbox/Control/margin text" index="0"]
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1534096891]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -40.0
+offset_right = 40.0
+grow_vertical = 0
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Saving" type="Label" parent="Control/MarginContainer" unique_id=1036775139]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Saving..."
+
+[editable path="Control/bottomHalf/MarginContainer/Textbox"]

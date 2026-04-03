@@ -1,0 +1,279 @@
+[gd_scene format=3 uid="uid://wwfhpeosv5a8"]
+
+[ext_resource type="Script" uid="uid://cuehpdbgph7ck" path="res://scripts/player.gd" id="1_gsrtp"]
+[ext_resource type="Texture2D" uid="uid://ba78108ij5rgx" path="res://sprites/bear body.png" id="2_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://jvyxrfi8fp8v" path="res://sprites/bear scarf.png" id="2_smehm"]
+[ext_resource type="Texture2D" uid="uid://br6ocpjyl2xf5" path="res://sprites/bear eyes nose.png" id="3_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://c14sjyamjq1wf" path="res://sprites/bear head.png" id="3_y4r1p"]
+[ext_resource type="Texture2D" uid="uid://cbjtkea6uv35x" path="res://sprites/bear ears.png" id="4_fjrip"]
+[ext_resource type="Texture2D" uid="uid://cw4gkaramqcy2" path="res://sprites/bear hands.png" id="6_fjrip"]
+[ext_resource type="Texture2D" uid="uid://chd65a25f8qln" path="res://sprites/bear legs.png" id="10_d2wvv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4r1p"]
+size = Vector2(8, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hlhl"]
+size = Vector2(8, 3.2424998)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_smehm"]
+size = Vector2(8, 7)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ur7pv"]
+size = Vector2(5, 8)
+
+[node name="player" type="CharacterBody2D" unique_id=1124142079 groups=["player"]]
+collision_layer = 2
+collision_mask = 57
+floor_snap_length = 5.0
+script = ExtResource("1_gsrtp")
+
+[node name="collider" type="CollisionShape2D" parent="." unique_id=730785821]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_y4r1p")
+
+[node name="sprites" type="Node2D" parent="." unique_id=478444801]
+position = Vector2(0, -7)
+scale = Vector2(0.025, 0.025)
+
+[node name="body" type="Sprite2D" parent="sprites" unique_id=1871268285]
+texture = ExtResource("2_qlg0r")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": true,
+"output_section": true,
+"pending_changes": {},
+"slice_section": false
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"should_round_fps": true,
+"slice": "",
+"source": "res://sprites/player.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "a2a7f1641ba47f95991eab92fe012a2f"
+
+[node name="scarf parent" type="Node2D" parent="sprites/body" unique_id=1096139400]
+position = Vector2(-126.999985, 30.03598)
+scale = Vector2(0.9999994, 0.9999994)
+
+[node name="scarf back" type="Sprite2D" parent="sprites/body/scarf parent" unique_id=235145653]
+z_index = -1
+position = Vector2(-25, 73.062)
+texture = ExtResource("2_smehm")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": true,
+"output_section": true,
+"pending_changes": {},
+"slice_section": false
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"should_round_fps": true,
+"slice": "",
+"source": "res://sprites/player.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "a2a7f1641ba47f95991eab92fe012a2f"
+
+[node name="head" type="Sprite2D" parent="sprites/body" unique_id=1580391429]
+z_index = -1
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("3_y4r1p")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": true,
+"output_section": true,
+"pending_changes": {},
+"slice_section": false
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"should_round_fps": true,
+"slice": "",
+"source": "res://sprites/player.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "a2a7f1641ba47f95991eab92fe012a2f"
+
+[node name="ears" type="Sprite2D" parent="sprites/body/head" unique_id=55481326]
+z_index = -1
+texture = ExtResource("4_fjrip")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": true,
+"output_section": true,
+"pending_changes": {},
+"slice_section": false
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"should_round_fps": true,
+"slice": "",
+"source": "res://sprites/player.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "a2a7f1641ba47f95991eab92fe012a2f"
+
+[node name="face" type="Sprite2D" parent="sprites/body/head" unique_id=2045021805]
+texture = ExtResource("3_tuyoq")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": true,
+"output_section": true,
+"pending_changes": {},
+"slice_section": false
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"should_round_fps": true,
+"slice": "",
+"source": "res://sprites/player.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "a2a7f1641ba47f95991eab92fe012a2f"
+
+[node name="headCenter" type="Node2D" parent="sprites/body/head" unique_id=503962573]
+position = Vector2(6.252, -100)
+
+[node name="hands" type="Sprite2D" parent="sprites/body" unique_id=2020072595]
+z_index = 1
+position = Vector2(-15, 0)
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("6_fjrip")
+
+[node name="bodyCenter" type="Node2D" parent="sprites/body" unique_id=895807106]
+position = Vector2(6.251907, 105.007355)
+
+[node name="legs" type="Sprite2D" parent="sprites" unique_id=2083565757]
+z_index = -1
+texture = ExtResource("10_d2wvv")
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": true,
+"output_section": true,
+"pending_changes": {},
+"slice_section": false
+}
+metadata/_aseprite_wizard_config_ = {
+"embed_tex": true,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"should_round_fps": true,
+"slice": "",
+"source": "res://sprites/player.aseprite"
+}
+metadata/_aseprite_wizard_source_file_hash_ = "a2a7f1641ba47f95991eab92fe012a2f"
+
+[node name="legsCenter" type="Node2D" parent="sprites/legs" unique_id=915417669]
+position = Vector2(6.252, 250)
+
+[node name="groundDetect" type="Area2D" parent="." unique_id=448051745]
+position = Vector2(0, -8)
+collision_layer = 0
+
+[node name="shape" type="CollisionShape2D" parent="groundDetect" unique_id=1033082449]
+position = Vector2(0, 7.37875)
+shape = SubResource("RectangleShape2D_2hlhl")
+debug_color = Color(0.95686275, 0, 0.53333336, 0.41960785)
+
+[node name="crouchDetect" type="Area2D" parent="." unique_id=124878335]
+position = Vector2(0, -8)
+collision_layer = 0
+
+[node name="shape" type="CollisionShape2D" parent="crouchDetect" unique_id=1488477592]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_smehm")
+debug_color = Color(0.9574571, 2.5027991e-06, 0.53508174, 0.41960785)
+
+[node name="leftDetect" type="Area2D" parent="." unique_id=233414124]
+position = Vector2(-4, -6)
+collision_layer = 0
+
+[node name="shape" type="CollisionShape2D" parent="leftDetect" unique_id=1034179975]
+position = Vector2(-2.5, 0)
+shape = SubResource("RectangleShape2D_ur7pv")
+debug_color = Color(0.9574571, 2.5027991e-06, 0.53508174, 0.41960785)
+
+[node name="rightDetect" type="Area2D" parent="." unique_id=695838668]
+position = Vector2(4, -6)
+collision_layer = 0
+
+[node name="shape" type="CollisionShape2D" parent="rightDetect" unique_id=1379382348]
+position = Vector2(2.5, 0)
+shape = SubResource("RectangleShape2D_ur7pv")
+debug_color = Color(0.9574571, 2.5027991e-06, 0.53508174, 0.41960785)
+
+[node name="testray" type="RayCast2D" parent="." unique_id=144205292]
+visible = false
+z_index = 100
+target_position = Vector2(0, -8)
+collision_mask = 0
+
+[node name="downray" type="RayCast2D" parent="." unique_id=1787476832]
+z_index = 100
+position = Vector2(-4, 0)
+target_position = Vector2(0, 2)
+
+[node name="downray2" type="RayCast2D" parent="." unique_id=633680623]
+z_index = 100
+position = Vector2(4, 0)
+target_position = Vector2(0, 2)
+
+[node name="leftwallray2" type="RayCast2D" parent="." unique_id=593701465]
+position = Vector2(0, -6)
+target_position = Vector2(-9, 0)
+
+[node name="rightwallray2" type="RayCast2D" parent="." unique_id=272957136]
+position = Vector2(0, -6)
+target_position = Vector2(9, 0)
+
+[node name="leftwallray1" type="RayCast2D" parent="." unique_id=559602845]
+position = Vector2(0, -10)
+target_position = Vector2(-9, 0)
+
+[node name="rightwallray1" type="RayCast2D" parent="." unique_id=791979452]
+position = Vector2(0, -10)
+target_position = Vector2(9, 0)
+
+[node name="leftwallray3" type="RayCast2D" parent="." unique_id=57295471]
+position = Vector2(0, -2)
+target_position = Vector2(-9, 0)
+
+[node name="rightwallray3" type="RayCast2D" parent="." unique_id=2126777781]
+position = Vector2(0, -2)
+target_position = Vector2(9, 0)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1628682322]
+position = Vector2(-0.20802307, 0.06934166)
+rect = Rect2(-7, -17, 14, 20)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1657283270]
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1896362220]
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="." unique_id=449167892]
