@@ -19,6 +19,8 @@ func _process(delta: float) -> void:
 func initialize(index: int, time: float):
 	set("text", str(index))
 	levelIndex = index
+	if index == 21:
+		return
 	if time != 20:
 		lblTime.text = str(floor(100*(20-time))/100)
 

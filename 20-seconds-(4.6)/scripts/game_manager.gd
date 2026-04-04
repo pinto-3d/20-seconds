@@ -461,7 +461,7 @@ func next_level():
 			gameSave.lastLevelBeat = levelIndex
 			pass 
 		if inGameUI.timer.timer:
-			if gameSave.levelInfos[levelIndex].bestTime > inGameUI.timer.timer:
+			if gameSave.levelInfos[levelIndex].bestTime < inGameUI.timer.timer:
 				gameSave.levelInfos[levelIndex].bestTime = inGameUI.timer.timer
 		
 		save_game()
