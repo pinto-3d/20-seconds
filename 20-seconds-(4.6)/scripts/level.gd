@@ -7,6 +7,12 @@ enum State {
 	POST_LEVEL
 }
 
+enum Direction {
+	Left,
+	Right,
+	None
+} 
+
 var state: State = State.PRE_LEVEL
 
 var tiles: TilesPlatform
@@ -28,6 +34,7 @@ var HAS_POST_LEVEL_SCENE: bool = false
 
 var HAS_INTRO: bool = false
 @export var HAS_GUN: bool = true
+@export var START_DIRECTION: Direction = Direction.Right
 var SELECTABLE: bool = true
 
 # pre concluded
@@ -123,6 +130,12 @@ func _player_spawning_loading_finished():
 	else:
 		if G.player.gun:
 			G.player.despawn_gun()
+	if START_DIRECTION == Direction.Right:
+		G.player.set_direction(1)
+		pass
+	elif START_DIRECTION == Direction.Left:
+		G.player.set_direction(-1)
+		pass
 
 # called post level intro
 func _start_level_input():

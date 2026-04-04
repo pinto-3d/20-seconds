@@ -62,10 +62,13 @@ func _ready() -> void:
 func _skip():
 	skipPressed.emit()
 
+var inputFrameDelay: bool = true
+
 func _process(delta: float) -> void:
 	
-	if Input.is_action_just_released("skip_text") or Input.is_action_just_released("pause"):
-		_skip()
+	if Input.is_action_just_pressed("skip_text") or Input.is_action_just_pressed("pause"):
+		if not inputFrameDelay:
+			_skip()
 	if isActive:
 		
 		if currentText != currentDestText:
@@ -84,6 +87,7 @@ func _process(delta: float) -> void:
 			talkTimer -= delta
 		else:
 			pass
+	inputFrameDelay = false
 
 func add_queue(messages: Array[MsgInfo]):
 	messageQueue.clear()

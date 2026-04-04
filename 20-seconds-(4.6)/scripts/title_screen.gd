@@ -55,7 +55,8 @@ func _ready() -> void:
 	
 	if not G.firstBoot:
 		phase = 5
-		colorRect.queue_free()
+		if colorRect:
+			colorRect.queue_free()
 		background.visible = true
 		backgroundIcey.visible = false
 		titleLabel.visible = true
@@ -79,7 +80,8 @@ func _process(delta: float) -> void:
 	if phase < 5:
 		if Input.is_action_just_pressed("skip_text"):
 			phase = 5
-			colorRect.queue_free()
+			if colorRect:
+				colorRect.queue_free()
 			background.visible = true
 			backgroundIcey.visible = false
 			titleLabel.visible = true
@@ -128,7 +130,8 @@ func _process(delta: float) -> void:
 			colorRect.color.a -= WHITE_FADE_LERP * delta
 			pass
 		else:
-			colorRect.queue_free()
+			if colorRect:
+				colorRect.queue_free()
 			start.grab_focus()
 			G.firstBoot = false
 			phase += 1

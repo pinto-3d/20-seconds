@@ -432,7 +432,8 @@ func _physics_process(delta: float) -> void:
 	match state:
 		State.TITLE_SCREEN:
 			if Input.is_action_just_pressed("pause"):
-				load_level_select(LevelSelect.Type.FromTitle)
+				if not titleScreen:
+					load_titlescreen()
 			if not audio.playing:
 				audio.stream = songLoop
 				audio.play(0)
