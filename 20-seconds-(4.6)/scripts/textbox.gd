@@ -33,7 +33,7 @@ const SCALE_CHANGE: float = 5
 var mode: Mode
 
 var lblText: RichTextLabel
-var buttonHint: ButtonHint
+var buttonHint: ButtonHintFamily
 var portrait: TextboxPortrait
 var btn: Button
 

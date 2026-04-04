@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://b37xqntmph2oq"]
-
-[node name="or" type="Label" unique_id=237231871]
-size_flags_horizontal = 3
-text = "or"
-horizontal_alignment = 1
-vertical_alignment = 1

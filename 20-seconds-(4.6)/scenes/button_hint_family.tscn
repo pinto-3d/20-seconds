@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dtecbq7vsslfg"]
+
+[ext_resource type="Script" uid="uid://cl1r8qxdyhevg" path="res://scenes/button_hint_family.gd" id="1_inklc"]
+
+[node name="Control" type="VBoxContainer" unique_id=999336152]
+scale = Vector2(0.25, 0.25)
+alignment = 1
+script = ExtResource("1_inklc")
+actionName = "left"

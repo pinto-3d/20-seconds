@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://ct0y8s1mnvw7l" path="res://tileset.tres" id="2_8b204"]
 [ext_resource type="Script" uid="uid://15sj45ac5qbs" path="res://scripts/tiles_platform.gd" id="3_mnb4u"]
 [ext_resource type="PackedScene" uid="uid://b4geu3gunpjal" path="res://scenes/target.tscn" id="4_uodtq"]
-[ext_resource type="PackedScene" uid="uid://c3qp05vstbspj" path="res://scenes/button_hint.tscn" id="5_8b204"]
+[ext_resource type="PackedScene" uid="uid://dtecbq7vsslfg" path="res://scenes/button_hint_family.tscn" id="5_8b204"]
 
 [node name="level" type="Node2D" unique_id=1118780585]
 script = ExtResource("1_8b204")
@@ -39,167 +39,21 @@ position = Vector2(96, -192)
 [node name="Target6" parent="." unique_id=1379580998 instance=ExtResource("4_uodtq")]
 position = Vector2(204, -84)
 
-[node name="Control" type="Control" parent="." unique_id=792135073]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 76.0
-offset_right = 208.0
-offset_bottom = 76.0
-scale = Vector2(0.25, 0.25)
-
-[node name="key left" parent="Control" unique_id=1210132391 instance=ExtResource("5_8b204")]
-layout_mode = 0
-offset_left = -16.0
-offset_top = 16.0
-offset_right = 26.0
-offset_bottom = 52.0
+[node name="Control" parent="." unique_id=999336152 instance=ExtResource("5_8b204")]
+offset_left = 72.0
+offset_right = 72.0
 actionName = "down"
 
-[node name="key left2" parent="Control" unique_id=2016147383 instance=ExtResource("5_8b204")]
-layout_mode = 0
-offset_left = -16.0
-offset_top = 80.0
-offset_right = 26.0
-offset_bottom = 116.0
-actionName = "down"
-actionIndex = 1
-
-[node name="key left3" parent="Control" unique_id=1361213337 instance=ExtResource("5_8b204")]
-layout_mode = 0
-offset_left = -16.0
-offset_top = 144.0
-offset_right = 26.0
-offset_bottom = 180.0
-actionName = "down"
-actionIndex = 2
-
-[node name="key left4" parent="Control" unique_id=1789188588 instance=ExtResource("5_8b204")]
-layout_mode = 0
-offset_left = -16.0
-offset_top = 144.0
-offset_right = 26.0
-offset_bottom = 180.0
-actionName = "down"
-actionIndex = 2
-
-[node name="Label4" type="Label" parent="Control" unique_id=109512150]
-layout_mode = 0
-offset_left = -32.0
-offset_top = 112.0
-offset_right = 8.0
-offset_bottom = 157.0
-theme_override_font_sizes/font_size = 16
-text = "or"
-
-[node name="Label3" type="Label" parent="Control" unique_id=735457964]
-layout_mode = 0
-offset_left = -28.0
-offset_top = 48.0
-offset_right = 12.0
-offset_bottom = 93.0
-theme_override_font_sizes/font_size = 16
-text = "or"
-
-[node name="Control2" type="Control" parent="." unique_id=969584164]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 3.0
-offset_top = -140.0
-offset_right = 135.0
-offset_bottom = -64.0
-scale = Vector2(0.25, 0.25)
-
-[node name="key left" parent="Control2" unique_id=817547565 instance=ExtResource("5_8b204")]
-layout_mode = 0
-offset_left = -16.0
-offset_top = 16.0
-offset_right = 26.0
-offset_bottom = 52.0
+[node name="Control2" parent="." unique_id=1679993337 instance=ExtResource("5_8b204")]
+offset_left = -8.0
+offset_top = -160.0
+offset_right = -8.0
+offset_bottom = -160.0
 actionName = "down"
 
-[node name="key left2" parent="Control2" unique_id=1456162253 instance=ExtResource("5_8b204")]
-layout_mode = 0
-offset_left = -16.0
-offset_top = 80.0
-offset_right = 26.0
-offset_bottom = 116.0
+[node name="Control3" parent="." unique_id=1824907275 instance=ExtResource("5_8b204")]
+offset_left = 72.0
+offset_top = -256.0
+offset_right = 72.0
+offset_bottom = -256.0
 actionName = "down"
-actionIndex = 1
-
-[node name="key left3" parent="Control2" unique_id=1223207397 instance=ExtResource("5_8b204")]
-layout_mode = 0
-offset_left = -16.0
-offset_top = 144.0
-offset_right = 26.0
-offset_bottom = 180.0
-actionName = "down"
-actionIndex = 2
-
-[node name="Label3" type="Label" parent="Control2" unique_id=628072860]
-layout_mode = 0
-offset_left = -32.0
-offset_top = 48.0
-offset_right = 8.0
-offset_bottom = 93.0
-theme_override_font_sizes/font_size = 16
-text = "or"
-
-[node name="Label3" type="Label" parent="Control2/Label3" unique_id=515240820]
-layout_mode = 0
-offset_top = 64.0
-offset_right = 40.0
-offset_bottom = 109.0
-theme_override_font_sizes/font_size = 16
-text = "or"
-
-[node name="Control3" type="Control" parent="." unique_id=1752215479]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 83.0
-offset_top = -252.0
-offset_right = 215.0
-offset_bottom = -176.0
-scale = Vector2(0.25, 0.25)
-
-[node name="key left" parent="Control3" unique_id=1090835072 instance=ExtResource("5_8b204")]
-layout_mode = 0
-offset_left = -16.0
-offset_top = 16.0
-offset_right = 26.0
-offset_bottom = 52.0
-actionName = "down"
-
-[node name="key left2" parent="Control3" unique_id=714266169 instance=ExtResource("5_8b204")]
-layout_mode = 0
-offset_left = -16.0
-offset_top = 80.0
-offset_right = 26.0
-offset_bottom = 116.0
-actionName = "down"
-actionIndex = 1
-
-[node name="key left3" parent="Control3" unique_id=1969847341 instance=ExtResource("5_8b204")]
-layout_mode = 0
-offset_left = -16.0
-offset_top = 144.0
-offset_right = 26.0
-offset_bottom = 180.0
-actionName = "down"
-actionIndex = 2
-
-[node name="Label3" type="Label" parent="Control3" unique_id=1804582158]
-layout_mode = 0
-offset_left = -32.0
-offset_top = 48.0
-offset_right = 8.0
-offset_bottom = 93.0
-theme_override_font_sizes/font_size = 16
-text = "or"
-
-[node name="Label3" type="Label" parent="Control3/Label3" unique_id=1420830648]
-layout_mode = 0
-offset_top = 64.0
-offset_right = 40.0
-offset_bottom = 109.0
-theme_override_font_sizes/font_size = 16
-text = "or"

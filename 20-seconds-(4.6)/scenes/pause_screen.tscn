@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bursccaau0w2t" path="res://scripts/pause_screen.gd" id="1_gchx3"]
 [ext_resource type="Theme" uid="uid://b67ktu5hqqt6u" path="res://default_font_style.tres" id="2_27awe"]
 [ext_resource type="Script" uid="uid://nd7cyc8t3w8l" path="res://scripts/screen_button.gd" id="2_hr2n2"]
-[ext_resource type="PackedScene" uid="uid://c3qp05vstbspj" path="res://scenes/button_hint.tscn" id="3_hr2n2"]
+[ext_resource type="PackedScene" uid="uid://dtecbq7vsslfg" path="res://scenes/button_hint_family.tscn" id="4_27awe"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fgkus"]
 font_size = 48
@@ -80,18 +80,19 @@ label_settings = SubResource("LabelSettings_fgkus")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="key icon" parent="Control" unique_id=1232759132 instance=ExtResource("3_hr2n2")]
+[node name="Label2" type="Label" parent="Control" unique_id=1431067890]
 layout_mode = 0
-offset_left = 28.0
-offset_top = 672.0
-offset_right = 70.0
-offset_bottom = 708.0
-actionName = "restart"
-
-[node name="Label" type="Label" parent="Control/key icon" unique_id=1431067890]
-layout_mode = 0
-offset_left = 64.0
-offset_top = 4.0
-offset_right = 104.0
-offset_bottom = 27.0
+offset_left = 32.0
+offset_top = 688.0
+offset_right = 89.0
+offset_bottom = 711.0
 text = "Restart"
+
+[node name="Control" parent="Control" unique_id=999336152 instance=ExtResource("4_27awe")]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 640.0
+offset_right = 40.0
+offset_bottom = 640.0
+scale = Vector2(1, 1)
+actionName = "restart"

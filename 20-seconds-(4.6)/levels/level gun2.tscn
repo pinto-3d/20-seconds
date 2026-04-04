@@ -1,71 +1,61 @@
-[gd_scene load_steps=6 format=4 uid="uid://bsd6h63bpvl3j"]
+[gd_scene format=4 uid="uid://bsd6h63bpvl3j"]
 
 [ext_resource type="Script" uid="uid://dd2wk88j3pman" path="res://levels/level_gun2.gd" id="1_rjuse"]
 [ext_resource type="TileSet" uid="uid://ct0y8s1mnvw7l" path="res://tileset.tres" id="2_ksdtv"]
 [ext_resource type="Script" uid="uid://15sj45ac5qbs" path="res://scripts/tiles_platform.gd" id="3_rrgae"]
 [ext_resource type="PackedScene" uid="uid://b4geu3gunpjal" path="res://scenes/target.tscn" id="4_xnlum"]
-[ext_resource type="PackedScene" uid="uid://c3qp05vstbspj" path="res://scenes/button_hint.tscn" id="5_hvphm"]
+[ext_resource type="PackedScene" uid="uid://dtecbq7vsslfg" path="res://scenes/button_hint_family.tscn" id="5_rjuse"]
 
-[node name="level" type="Node2D"]
+[node name="level" type="Node2D" unique_id=623308011]
 script = ExtResource("1_rjuse")
 paletteName = "gun"
 
-[node name="platform" type="TileMapLayer" parent="."]
+[node name="platform" type="TileMapLayer" parent="." unique_id=2065968693]
 scale = Vector2(0.1, 0.1)
 tile_map_data = PackedByteArray("AAD9/wAAAAAAAAkAAAD+/wAAAAAAAAkAAAD//wAAAAAAAAkAAAD//wEAAAAAAAkAAAD+/wEAAAAAAAkAAAD9/wEAAAAAAAkAAAD8/wAAAAAAAAkAAAD8/wEAAAAAAAkAAAD//wIAAAAAAAkAAAD+/wIAAAAAAAkAAAD9/wIAAAAAAAkAAAD8/wIAAAAAAAkAAAAAAAAAAAAAAAkAAAAAAAEAAAAAAAkAAAAAAAIAAAAAAAkAAAABAAAAAAAAAAkAAAABAAEAAAAAAAkAAAABAAIAAAAAAAkAAAACAAAAAAAAAAkAAAACAAEAAAAAAAkAAAACAAIAAAAAAAkAAAADAAAAAAAAAAkAAAADAAEAAAAAAAkAAAADAAIAAAAAAAkAAAAEAAAAAAAAAAkAAAAEAAEAAAAAAAkAAAAEAAIAAAAAAAkAAAAFAAAAAAAAAAkAAAAFAAEAAAAAAAkAAAAFAAIAAAAEAAgAACAGAAAAAAAAAAkAAAAGAAEAAAAEAAgAACAHAAAAAAAEAAgAACD5/wAAAAAEAAgAADD6/wAAAAAAAAkAAAD6/wEAAAAEAAgAADD7/wAAAAAAAAkAAAD7/wEAAAAAAAkAAAD7/wIAAAAEAAgAADACAP7/AAAAAAkAAAACAP3/AAADAAgAACD9//7/AAADAAgAACD9////AAAAAAkAAAA=")
 tile_set = ExtResource("2_ksdtv")
 script = ExtResource("3_rrgae")
 
-[node name="start" type="Node2D" parent="." groups=["start"]]
+[node name="start" type="Node2D" parent="." unique_id=765468582 groups=["start"]]
 
-[node name="Target" parent="." instance=ExtResource("4_xnlum")]
+[node name="Target" parent="." unique_id=1855382935 instance=ExtResource("4_xnlum")]
 position = Vector2(144, -8)
 
-[node name="Target2" parent="." instance=ExtResource("4_xnlum")]
+[node name="Target2" parent="." unique_id=379508541 instance=ExtResource("4_xnlum")]
 position = Vector2(112, -40)
 
-[node name="Target6" parent="." instance=ExtResource("4_xnlum")]
+[node name="Target6" parent="." unique_id=249302275 instance=ExtResource("4_xnlum")]
 position = Vector2(-136, -8)
 
-[node name="Target7" parent="." instance=ExtResource("4_xnlum")]
+[node name="Target7" parent="." unique_id=433522209 instance=ExtResource("4_xnlum")]
 position = Vector2(-104, -56)
 
-[node name="Target8" parent="." instance=ExtResource("4_xnlum")]
+[node name="Target8" parent="." unique_id=1007340045 instance=ExtResource("4_xnlum")]
 position = Vector2(-56, -80)
 
-[node name="Target3" parent="." instance=ExtResource("4_xnlum")]
+[node name="Target3" parent="." unique_id=460019717 instance=ExtResource("4_xnlum")]
 position = Vector2(16, -64)
 
-[node name="Target4" parent="." instance=ExtResource("4_xnlum")]
+[node name="Target4" parent="." unique_id=1503707206 instance=ExtResource("4_xnlum")]
 position = Vector2(64, -88)
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
+[node name="Control2" parent="." unique_id=999336152 instance=ExtResource("5_rjuse")]
 offset_left = -16.0
 offset_top = 8.0
-offset_right = 116.0
-offset_bottom = 84.0
+offset_right = -16.0
+offset_bottom = 8.0
+actionName = "up"
+
+[node name="Control" type="Control" parent="." unique_id=1266955659]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -13.0
+offset_top = 5.0
+offset_right = 119.0
+offset_bottom = 81.0
 scale = Vector2(0.25, 0.25)
 
-[node name="key left" parent="Control" instance=ExtResource("5_hvphm")]
-layout_mode = 0
-offset_left = -12.0
-offset_top = 16.0
-offset_right = 30.0
-offset_bottom = 52.0
-actionName = "shoot"
-
-[node name="key left2" parent="Control" instance=ExtResource("5_hvphm")]
-layout_mode = 0
-offset_left = -12.0
-offset_top = 80.0
-offset_right = 30.0
-offset_bottom = 116.0
-actionName = "shoot"
-actionIndex = 1
-
-[node name="Label" type="Label" parent="Control"]
+[node name="Label" type="Label" parent="Control" unique_id=1813650327]
 layout_mode = 0
 offset_left = 44.0
 offset_top = 12.0
@@ -74,16 +64,7 @@ offset_bottom = 57.0
 theme_override_font_sizes/font_size = 32
 text = "+"
 
-[node name="Label3" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 44.0
-offset_top = 52.0
-offset_right = 84.0
-offset_bottom = 97.0
-theme_override_font_sizes/font_size = 16
-text = "or"
-
-[node name="Label2" type="Label" parent="Control"]
+[node name="Label2" type="Label" parent="Control" unique_id=885386449]
 layout_mode = 0
 offset_left = 44.0
 offset_top = 76.0
@@ -92,28 +73,9 @@ offset_bottom = 121.0
 theme_override_font_sizes/font_size = 32
 text = "+"
 
-[node name="Control2" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 6.0
+[node name="Control3" parent="." unique_id=1099784837 instance=ExtResource("5_rjuse")]
+offset_left = 8.0
 offset_top = 8.0
-offset_right = 138.0
-offset_bottom = 84.0
-scale = Vector2(0.25, 0.25)
-
-[node name="key left" parent="Control2" instance=ExtResource("5_hvphm")]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 16.0
-offset_right = 62.0
-offset_bottom = 52.0
-actionName = "up"
-
-[node name="key left2" parent="Control2" instance=ExtResource("5_hvphm")]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 80.0
-offset_right = 62.0
-offset_bottom = 116.0
-actionName = "up"
-actionIndex = 1
+offset_right = 8.0
+offset_bottom = 8.0
+actionName = "shoot"

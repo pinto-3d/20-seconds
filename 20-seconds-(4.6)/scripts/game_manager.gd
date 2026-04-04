@@ -77,6 +77,37 @@ var palettes = {
 
 var isBossFight: bool = false
 
+var texNsXbButtonUp: CompressedTexture2D = preload("res://sprites/ns-ps button up.png")
+var texNsXbButtonDown: CompressedTexture2D = preload("res://sprites/ns-ps button down.png")
+var texNsButtonA: CompressedTexture2D = preload("res://sprites/button ns A.png")
+var texNsButtonB: CompressedTexture2D = preload("res://sprites/button ns B.png")
+var texNsButtonX: CompressedTexture2D = preload("res://sprites/button ns X.png")
+var texNsButtonY: CompressedTexture2D = preload("res://sprites/button ns Y.png")
+
+var texPsButtonCross: CompressedTexture2D = preload("res://sprites/button ps X.png")
+var texPsButtonTriangle: CompressedTexture2D = preload("res://sprites/button ps Triangle.png")
+var texPsButtonSquare: CompressedTexture2D = preload("res://sprites/button ps Square.png")
+var texPsButtonCircle: CompressedTexture2D = preload("res://sprites/button ps Circle.png")
+
+var texXbButtonA: CompressedTexture2D = preload("res://sprites/button xb A.png")
+var texXbButtonB: CompressedTexture2D = preload("res://sprites/button xb B.png")
+var texXbButtonX: CompressedTexture2D = preload("res://sprites/button xb X.png")
+var texXbButtonY: CompressedTexture2D = preload("res://sprites/button xb Y.png")
+
+var texButtonSelect: CompressedTexture2D = preload("res://sprites/select.png")
+
+var texTriggerR: CompressedTexture2D = preload("res://sprites/Rtrigger.png")
+var texTriggerRdown: CompressedTexture2D = preload("res://sprites/Rtrigger down.png")
+
+var texDpad: CompressedTexture2D = preload("res://sprites/dpad unpressed.png")
+var texDpadUp: CompressedTexture2D = preload("res://sprites/dpad-up.png")
+var texDpadDown: CompressedTexture2D = preload("res://sprites/dpad-down.png")
+var texDpadLeft: CompressedTexture2D = preload("res://sprites/dpad-left.png")
+var texDpadRight: CompressedTexture2D = preload("res://sprites/dpad-right.png")
+
+var texKeyUnpressed: CompressedTexture2D = preload("res://sprites/key 32pt.png")
+var texKeyPressed: CompressedTexture2D = preload("res://sprites/key down 32pt.png")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if OS.has_feature('web'):
@@ -335,16 +366,17 @@ func spawn(scene: PackedScene):
 	return node
 
 func _input(event):
-	if event is InputEventJoypadMotion:
-		return
-	
-	if event is InputEventKey:
+	if event is InputEventKey or event is InputEventMouse or event is InputEventMouseButton:
 		var joy = ""
 		if joy != prevJoyName:
 			prevJoyName = joy
 			get_controller_type(joy)
 		pass
-	elif event is InputEventJoypadButton:
+	elif event is InputEventJoypadButton or event is InputEventJoypadMotion:
+		if event is InputEventJoypadMotion:
+			if abs(event.axis_value) < 0.1:
+				return
+			pass
 		var joy = Input.get_joy_name(0)
 		if joy != prevJoyName:
 			prevJoyName = joy
@@ -352,8 +384,8 @@ func _input(event):
 		pass
 
 signal controllerChanged(controllerType: ControllerType)
-var controllerType: ControllerType
-var prevJoyName: String
+var controllerType: ControllerType = ControllerType.PC
+var prevJoyName: String = ""
 
 enum ControllerType {
 	PS, Xbox, Nintendo, PC
