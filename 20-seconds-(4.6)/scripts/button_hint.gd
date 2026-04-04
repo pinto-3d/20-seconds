@@ -69,7 +69,7 @@ func set_action_obj(action: InputEvent):
 				lblKey.text = "↓"
 				pass
 			"Left":
-				lblKey.text = "←"
+				lblKey.text = "˿"
 				pass
 			"Right":
 				lblKey.text = "→"
