@@ -387,6 +387,8 @@ signal controllerChanged(controllerType: ControllerType)
 var controllerType: ControllerType = ControllerType.PC
 var prevJoyName: String = ""
 
+var firstBoot: bool = true
+
 enum ControllerType {
 	PS, Xbox, Nintendo, PC
 }

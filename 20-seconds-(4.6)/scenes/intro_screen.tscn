@@ -1,7 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7ib5v7prcp1g"]
+[gd_scene format=3 uid="uid://b7ib5v7prcp1g"]
 
 [ext_resource type="Script" uid="uid://bf16v5pkwh0f4" path="res://scripts/intro_screen.gd" id="1_knwjy"]
 [ext_resource type="Theme" uid="uid://b67ktu5hqqt6u" path="res://default_font_style.tres" id="2_2i7sm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m3gk3"]
+font_size = 30
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m3gk3"]
 
@@ -13,10 +16,10 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g5fjw"]
 
-[node name="intro screen" type="CanvasLayer"]
+[node name="intro screen" type="CanvasLayer" unique_id=776013877]
 script = ExtResource("1_knwjy")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." unique_id=1156499717]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,30 +27,31 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1514721018]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 64
-theme_override_constants/margin_top = 64
-theme_override_constants/margin_right = 64
-theme_override_constants/margin_bottom = 64
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
-[node name="Label" type="Label" parent="Control/MarginContainer"]
+[node name="Label" type="Label" parent="Control/MarginContainer" unique_id=708900829]
 layout_mode = 2
 size_flags_vertical = 1
 theme = ExtResource("2_2i7sm")
 theme_override_font_sizes/font_size = 32
 text = "sdfgsdfg"
+label_settings = SubResource("LabelSettings_m3gk3")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=842338998]
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1391712312]
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="." unique_id=1812878346]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

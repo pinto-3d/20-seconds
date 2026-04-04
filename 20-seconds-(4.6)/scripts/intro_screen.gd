@@ -128,8 +128,9 @@ func _speak_info(info: MsgInfo):
 		audio.play()
 		pass
 	if info.text == "WELCOME TO THE FIELD TRAINING SIMULATION":
-		loadBackground.emit()
+		#loadBackground.emit()
 		audio2.stop()
+		_skip()
 		pass
 	if info.mode != Mode.PerCharContinuing:
 		currentText = ""
