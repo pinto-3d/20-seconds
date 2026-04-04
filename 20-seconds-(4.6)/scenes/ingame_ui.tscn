@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://ci377c1f123v5" path="res://scripts/ingame_ui.gd" id="1_v3yap"]
 [ext_resource type="PackedScene" uid="uid://cwnldookuoxx2" path="res://scenes/target_ui.tscn" id="2_f6424"]
 [ext_resource type="Script" uid="uid://d3sgbcowqol5g" path="res://scripts/timer.gd" id="2_uyn70"]
+[ext_resource type="Script" uid="uid://c1kr5y4rc60tc" path="res://scenes/boss_health_bar.gd" id="2_yrj12"]
 [ext_resource type="Theme" uid="uid://b67ktu5hqqt6u" path="res://default_font_style.tres" id="3_npobg"]
 [ext_resource type="Texture2D" uid="uid://bb0tmgtsb53dj" path="res://sprites/timer sprite0.png" id="3_yrj12"]
 [ext_resource type="PackedScene" uid="uid://cn4umnxmqbesx" path="res://scenes/textbox.tscn" id="4_hifx3"]
@@ -26,15 +27,30 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="boss health" type="ProgressBar" parent="Control" unique_id=1182758108]
+[node name="boss health" type="Panel" parent="Control" unique_id=996964862]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -212.0
 offset_right = 212.0
-offset_bottom = 27.0
+offset_bottom = 56.0
 grow_horizontal = 2
+size_flags_horizontal = 3
+script = ExtResource("2_yrj12")
+
+[node name="boss health" type="ProgressBar" parent="Control/boss health" unique_id=1651627703]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -212.0
+offset_top = -27.0
+offset_right = 212.0
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_horizontal = 3
 theme_override_styles/background = SubResource("StyleBoxFlat_uyn70")
 theme_override_styles/fill = SubResource("StyleBoxFlat_f6424")
@@ -42,6 +58,17 @@ max_value = 20.0
 step = 1.0
 value = 20.0
 show_percentage = false
+
+[node name="Label" type="Label" parent="Control/boss health" unique_id=1555105928]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "The Corrupt Target"
 
 [node name="topHalf" type="HBoxContainer" parent="Control" unique_id=358788825]
 layout_mode = 1
@@ -181,7 +208,7 @@ theme_override_constants/margin_bottom = 16
 [node name="Textbox" parent="Control/bottomHalf/MarginContainer" unique_id=88157116 instance=ExtResource("4_hifx3")]
 layout_mode = 2
 
-[node name="Text" parent="Control/bottomHalf/MarginContainer/Textbox/Control/margin text" index="0"]
+[node name="Text" parent="Control/bottomHalf/MarginContainer/Textbox/Control/margin text" parent_id_path=PackedInt32Array(88157116, 2061471466) index="0" unique_id=1650819985]
 theme_override_font_sizes/normal_font_size = 32
 theme_override_font_sizes/bold_font_size = 32
 

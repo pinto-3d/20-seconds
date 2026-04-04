@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://dxty86frt7s0a"]
+[gd_scene format=3 uid="uid://cpa0nyqb73d10"]
 
-[ext_resource type="Texture2D" uid="uid://df5pbucj48l8g" path="res://sprites/circle.png" id="1_7xfkf"]
-[ext_resource type="Script" uid="uid://bmpgdpf8a6tp3" path="res://scripts/one_shot_emitter.gd" id="2_5imkp"]
+[ext_resource type="Texture2D" uid="uid://df5pbucj48l8g" path="res://sprites/circle.png" id="1_vntl2"]
+[ext_resource type="Script" uid="uid://bmpgdpf8a6tp3" path="res://scripts/one_shot_emitter.gd" id="2_mc6n0"]
 
 [sub_resource type="Gradient" id="Gradient_7xfkf"]
 offsets = PackedFloat32Array(0.5, 0.501)
@@ -25,15 +25,15 @@ spread = 180.0
 initial_velocity_min = 50.0
 initial_velocity_max = 50.0
 gravity = Vector3(0, 98, 0)
-scale_min = 0.03
-scale_max = 0.06
+scale_min = 0.19999999
+scale_max = 0.19999999
 scale_curve = SubResource("CurveTexture_d5n4w")
 color_initial_ramp = SubResource("GradientTexture1D_5imkp")
 
 [node name="emitter" type="GPUParticles2D" unique_id=875530960]
 emitting = false
-texture = ExtResource("1_7xfkf")
+texture = ExtResource("1_vntl2")
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_7xfkf")
-script = ExtResource("2_5imkp")
+script = ExtResource("2_mc6n0")

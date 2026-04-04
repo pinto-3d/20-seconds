@@ -13,7 +13,7 @@ var timer: SecTimer
 
 var targetUI: TargetUI
 
-var bigtargethealth: ProgressBar
+var bigTargetHealthBar: BossHealthBar
 var bigtarget: BigTarget
 
 var frameCount: int = 0
@@ -29,8 +29,8 @@ func _ready() -> void:
 	lblLevelNum = $Control/topHalf/left/MarginContainer/VBoxContainer/lblLevelNum
 	lblLevelNum.visible =false
 	
-	bigtargethealth = $"Control/boss health"
-	bigtargethealth.visible = false
+	bigTargetHealthBar = $"Control/boss health"
+	bigTargetHealthBar.visible = false
 	
 	lblDebug = $Control/topHalf/left/MarginContainer/VBoxContainer/lblDebug
 	textbox = $Control/bottomHalf/MarginContainer/Textbox
@@ -51,12 +51,12 @@ func _process(delta: float) -> void:
 	
 	if G.isBossFight:
 		if bigtarget:
-			bigtargethealth.visible = true
-			bigtargethealth.value = bigtarget.health
+			bigTargetHealthBar.visible = true
+			bigTargetHealthBar.set_value(bigtarget.health)
 		else:
-			bigtargethealth.visible = false
+			bigTargetHealthBar.visible = false
 	else:
-		bigtargethealth.visible = false
+		bigTargetHealthBar.visible = false
 	
 	if G.curLevelObj:
 		if G.curLevelObj.index > 0:
