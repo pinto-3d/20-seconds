@@ -196,6 +196,10 @@ func set_backgrounds_color(color:Color):
 	for i in range(0, backgrounds.size()):
 		backgrounds[i].set_background_color(color)
 
+func lerp_backgrounds_hue(hue:float, lerp: float):
+	for i in range(0, backgrounds.size()):
+		backgrounds[i].lerp_background_hue(hue, lerp)
+
 func set_backgrounds_color_from_level(level: Level):
 	if level.paletteName == "":
 		set_backgrounds_color(level.color)

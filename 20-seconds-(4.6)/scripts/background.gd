@@ -25,3 +25,7 @@ func set_background_color(color:Color):
 	self.color.r = color.r
 	self.color.g = color.g
 	self.color.b = color.b
+
+func lerp_background_hue(hue:float, lerp:float):
+	self.color.h = lerp(self.color.h, hue, lerp)
+	pass

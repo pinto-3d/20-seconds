@@ -42,8 +42,6 @@ func _init():
 
 func _ready():
 	tiles = $platform
-	var keys: Array = G.palettes.keys()
-	tiles.color = G.palettes[keys[randi_range(0, keys.size()-1)]]
 	closeExitTiles = $closeexit
 	closeExitPos = closeExitTiles.global_position
 	closeExitTiles.global_position = Vector2(10000, -1000)
@@ -67,6 +65,9 @@ func _ready():
 	audio.reparent(self)
 	audio.stream = load("res://audio/kalimba4.mp3")
 
+var MIN_BACK_COLOR_DIFF: float = 0.025
+var BACK_COLOR_LERP: float = 1
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 @warning_ignore("unused_parameter")
 func _process(delta):
@@ -79,6 +80,13 @@ func _process(delta):
 			if G.player.global_position.y > 1000:
 				print("x: ", G.player.global_position.x, ", ",global_position.x + 4000,"     y: ",G.player.global_position.y,",  ",global_position.y + 1000)
 				G.player.die()
+				
+	if G.backgrounds[0].color.h != tiles.color.h:
+		#G.set_backgrounds_color(G.backgrounds[0].color.lerp(tiles.color, BACK_COLOR_LERP * delta))
+		G.lerp_backgrounds_hue(tiles.color.h, BACK_COLOR_LERP * delta)
+	if abs(tiles.color.h - G.backgrounds[0].color.h) < MIN_BACK_COLOR_DIFF:
+		G.backgrounds[0].color.h == tiles.color.h
+		pass
 	pass
 
 func _physics_process(delta: float) -> void:

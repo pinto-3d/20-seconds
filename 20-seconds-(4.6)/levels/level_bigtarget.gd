@@ -161,6 +161,8 @@ func spawn_random_boss_level():
 		rand = randi_range(0, bossLevels.size()-1)
 	spawn_boss_level(rand)
 
+var prevBossLevelColorKey: String = "jump"
+
 func spawn_boss_level(index: int):
 	lastBossLevelSpawned = index
 	if tiles:
@@ -169,6 +171,13 @@ func spawn_boss_level(index: int):
 	currentBossLevel.bosslevelGoalReached.connect(bossLevelBeat)
 	currentBossLevel.targetHit.connect(bigTarget.take_damage)
 	currentBossLevel.reparent(self)
+	
+	var palClone = G.palettes.duplicate()
+	palClone.erase(prevBossLevelColorKey)
+	var keys: Array = palClone.keys()
+	prevBossLevelColorKey = keys[randi_range(0, keys.size()-1)]
+	currentBossLevel.tiles.color = G.palettes[prevBossLevelColorKey]
+	
 	totalTime += G.inGameUI.timer.SECONDS - G.inGameUI.timer.timer
 	G.inGameUI.timer.set_timer()
 	currentBossLevel.global_position = G.player.global_position - currentBossLevel.start.global_position
