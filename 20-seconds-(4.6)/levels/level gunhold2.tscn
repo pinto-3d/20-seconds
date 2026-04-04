@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://da2uh7p8pk8n6" path="res://levels/base_level.gd" id="1_gay34"]
 [ext_resource type="TileSet" uid="uid://ct0y8s1mnvw7l" path="res://tileset.tres" id="2_jidjt"]
 [ext_resource type="Script" uid="uid://15sj45ac5qbs" path="res://scripts/tiles_platform.gd" id="3_qbupi"]
-[ext_resource type="PackedScene" uid="uid://c3qp05vstbspj" path="res://scenes/button_hint.tscn" id="4_jpw82"]
 [ext_resource type="PackedScene" uid="uid://b4geu3gunpjal" path="res://scenes/target.tscn" id="5_3evu6"]
+[ext_resource type="PackedScene" uid="uid://dtecbq7vsslfg" path="res://scenes/button_hint_family.tscn" id="5_gay34"]
 
 [node name="level" type="Node2D" unique_id=242610287]
 script = ExtResource("1_gay34")
@@ -24,59 +24,6 @@ script = ExtResource("3_qbupi")
 
 [node name="start" type="Node2D" parent="." unique_id=257011337 groups=["start"]]
 position = Vector2(-16, -6)
-
-[node name="Control" type="Control" parent="." unique_id=951791556]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -16.0
-offset_top = 8.0
-offset_right = 116.0
-offset_bottom = 84.0
-scale = Vector2(0.25, 0.25)
-
-[node name="key left" parent="Control" unique_id=44232383 instance=ExtResource("4_jpw82")]
-layout_mode = 0
-offset_left = -12.0
-offset_top = 16.0
-offset_right = 30.0
-offset_bottom = 52.0
-actionName = "shoot"
-
-[node name="key left2" parent="Control" unique_id=1389284471 instance=ExtResource("4_jpw82")]
-layout_mode = 0
-offset_left = -12.0
-offset_top = 80.0
-offset_right = 30.0
-offset_bottom = 116.0
-actionName = "shoot"
-actionIndex = 1
-
-[node name="Label" type="Label" parent="Control" unique_id=166743531]
-layout_mode = 0
-offset_left = -140.0
-offset_top = 12.0
-offset_right = -71.0
-offset_bottom = 57.0
-theme_override_font_sizes/font_size = 32
-text = "hold"
-
-[node name="Label4" type="Label" parent="Control" unique_id=352882655]
-layout_mode = 0
-offset_left = -140.0
-offset_top = 76.0
-offset_right = -71.0
-offset_bottom = 121.0
-theme_override_font_sizes/font_size = 32
-text = "hold"
-
-[node name="Label3" type="Label" parent="Control" unique_id=438831411]
-layout_mode = 0
-offset_left = -44.0
-offset_top = 52.0
-offset_right = -4.0
-offset_bottom = 97.0
-theme_override_font_sizes/font_size = 16
-text = "or"
 
 [node name="horizontal" type="Node2D" parent="." unique_id=280813534]
 
@@ -319,3 +266,28 @@ position = Vector2(360, -40)
 
 [node name="Target74" parent="." unique_id=581874361 instance=ExtResource("5_3evu6")]
 position = Vector2(312, -64)
+
+[node name="Control" type="Control" parent="." unique_id=390998933]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -7.0
+offset_top = 7.0
+offset_right = 125.0
+offset_bottom = 83.0
+scale = Vector2(0.25, 0.25)
+
+[node name="Label" type="Label" parent="Control" unique_id=586115487]
+layout_mode = 0
+offset_left = -128.0
+offset_top = 32.0
+offset_right = -59.0
+offset_bottom = 77.0
+theme_override_font_sizes/font_size = 32
+text = "hold"
+
+[node name="Control2" parent="." unique_id=999336152 instance=ExtResource("5_gay34")]
+offset_left = -15.0
+offset_top = 7.0
+offset_right = -15.0
+offset_bottom = 7.0
+actionName = "shoot"
