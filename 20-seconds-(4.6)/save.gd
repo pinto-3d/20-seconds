@@ -106,6 +106,8 @@ static func create_blank(levelCount: int) -> GameInfo:
 		if i == 0:
 			gameSave.levelInfos.back().selectable = false
 			pass
+		if i == levelCount - 1:
+			gameSave.levelInfos.back().bestTime = 9999999
 	if G.debug:
 		gameSave.lastLevelBeat = 0
 	else:

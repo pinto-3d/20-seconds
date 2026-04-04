@@ -30,6 +30,8 @@ func _ready():
 	bigTarget.targetDied.connect(_target_died)
 	G.isBossFight = false
 	
+	totalTime = 0
+	
 	pass # Replace with function body.
 
 func _target_died():
@@ -109,7 +111,6 @@ func _message_box_finished():
 		msg_progress += 1
 		G.isBossFight = true
 		
-		_start_level_input()
 		phase = BossPhase.HERE
 		bigTarget.set_is_tangible(true)
 		bigTarget.eyeFollow = BigTarget.EyeFollow.Player
@@ -145,6 +146,7 @@ func _message_box_finished():
 		]
 		G.send_queue_to_message_box(queue)
 	elif msg_progress == 20:
+		G.inGameUI.timer.timer = totalTime
 		levelConcluded.emit()
 		G.load_ending()
 		pass
@@ -167,13 +169,15 @@ func spawn_boss_level(index: int):
 	currentBossLevel.bosslevelGoalReached.connect(bossLevelBeat)
 	currentBossLevel.targetHit.connect(bigTarget.take_damage)
 	currentBossLevel.reparent(self)
-	
+	totalTime += G.inGameUI.timer.SECONDS - G.inGameUI.timer.timer
 	G.inGameUI.timer.set_timer()
 	currentBossLevel.global_position = G.player.global_position - currentBossLevel.start.global_position
 	bigTarget.set_dest(currentBossLevel.bigtargetpos.global_position)
 	bossLevelsSpawned += 1
 	
 	G.player.velocity = Vector2.ZERO
+
+var totalTime: float = 0
 
 func bossLevelBeat():
 	if currentBossLevel:
