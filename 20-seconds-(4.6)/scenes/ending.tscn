@@ -190,3 +190,7 @@ offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="pengaudio" type="AudioStreamPlayer" parent="." unique_id=1520636723]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1291560972]
