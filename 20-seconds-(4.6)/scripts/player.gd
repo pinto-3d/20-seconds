@@ -261,7 +261,10 @@ func _process(delta):
 	
 	if abs(inputVector.x) > INPUT_DEADZONE:
 		@warning_ignore("unused_parameter", "narrowing_conversion")
-		set_direction(inputVector.x)
+		if inputVector.x > 0:
+			set_direction(1)
+		elif inputVector.x < 1:
+			set_direction(-1)
 		faceBaseTimer = FACE_BASE_IDLE_TIME
 	else:
 		pass
@@ -952,6 +955,9 @@ func get_inputVector():
 	return inputVector
 	
 func set_direction(dir: int):
+	
+	if dir == 0:
+		pass
 	direction = dir
 	if dir == -1:
 		imgBody.flip_h = true
@@ -962,7 +968,7 @@ func set_direction(dir: int):
 		imgScarf.position.x = SCARF_SPR_RIGHT_X
 		imgHand.flip_h = true
 		pass
-	if dir == 1:
+	elif dir == 1:
 		imgBody.flip_h = false
 		imgEars.flip_h = false
 		imgFace.flip_h = false
@@ -971,6 +977,8 @@ func set_direction(dir: int):
 		imgScarf.position.x = SCARF_SPR_LEFT_X
 		imgHand.flip_h = false
 		pass
+	else:
+		return
 	
 	if gun:
 		gun.set_direction(Vector2(direction, inputVector.y))

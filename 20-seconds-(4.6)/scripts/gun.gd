@@ -122,9 +122,12 @@ func set_direction(dir: Vector2):
 	if dir.x > 0:
 		sprite.flip_h = false
 		gunPoint.position.x = gunPointPos.x
-	else:
+	elif dir.x < 0:
 		sprite.flip_h = true
 		gunPoint.position.x = -gunPointPos.x
+	else:
+		
+		pass
 	pass
 
 func bullet_was_destroyed(bullet: Bullet):
