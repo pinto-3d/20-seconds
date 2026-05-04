@@ -166,6 +166,8 @@ func set_action_obj(action: InputEvent):
 			pass
 		pass
 	elif action is InputEventJoypadMotion:
+		if action.axis != 1:
+			return false
 		texIcon.visible = false
 		buttonType = ButtonType.Trigger
 		texture = G.texTriggerR
@@ -176,6 +178,7 @@ func set_action_obj(action: InputEvent):
 				pass
 		pass
 	pressedTex = texture
+	return true
 var unpressedTex: CompressedTexture2D
 var pressedTex: CompressedTexture2D
 func _process(delta: float) -> void:

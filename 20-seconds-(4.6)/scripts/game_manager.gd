@@ -370,7 +370,7 @@ func spawn(scene: PackedScene):
 	return node
 
 func _input(event):
-	if event is InputEventKey or event is InputEventMouse or event is InputEventMouseButton:
+	if event is InputEventKey or event is InputEventMouseButton:
 		var joy = ""
 		if joy != prevJoyName:
 			prevJoyName = joy

@@ -30,6 +30,7 @@ func set_button_hints():
 	
 	for action in actions:
 		if action is InputEventKey:
+			var keykey = action.as_text_physical_keycode()
 			if G.controllerType == G.ControllerType.PC:
 				await add_button_hint(action)
 		elif action is InputEventJoypadButton or action is InputEventJoypadMotion:
@@ -44,8 +45,10 @@ func add_button_hint(action):
 		pass
 	var btnHint: ButtonHint = await G.spawn(btnHintScene)
 	btnHint.reparent(self)
-	btnHint.set_action_obj(action)
-	childHints.append(btnHint)
+	if await btnHint.set_action_obj(action):
+		childHints.append(btnHint)
+	else:
+		btnHint.queue_free()
 	pass
 
 func _controller_changed(controllerType: G.ControllerType):
